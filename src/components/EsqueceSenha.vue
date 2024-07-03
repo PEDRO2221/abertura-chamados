@@ -7,14 +7,8 @@
       <span>Informe o e-mail para o qual deseja redefinir a sua senha.</span>
       <Form @submit="" @invalid-submit="">
         <div class="input-group flex-nowrap">
-          <Field
-            v-model="username"
-            class="form-control"
-            name="email"
-            type="email"
-            rules="required|email"
-            placeholder="Email"
-          />
+          <Field v-model="username" class="form-control" name="email" type="email" rules="required|email"
+            placeholder="Email" />
         </div>
         <div>
           <button type="submit" class="submit btn btn">Redefinir Senha</button>
@@ -28,12 +22,14 @@
 </template>
 
 <script lang="ts">
+import { Form, Field } from 'vee-validate';
 export default {
+  
   components: {
+    Form,
+    Field,
   },
-  methods: {
-    
-    },
+  methods: {},
   data() {
     return {
       username: "",
@@ -52,10 +48,12 @@ export default {
   height: 100%;
   justify-content: center;
 }
+
 .login-component img {
   width: 216px;
   height: 167px;
 }
+
 .login-component span {
   color: #212529;
   font-family: Poppins;
