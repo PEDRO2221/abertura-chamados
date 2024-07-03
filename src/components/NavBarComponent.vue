@@ -5,7 +5,7 @@
                 aria-controls="offcanvasNavbar">
                 <i class="bi bi-list text-white"></i>
             </button>
-            <a class="navbar-brand d-flex justify-content-start text-white" href="#">Meus Pedidos</a>
+            <a class="navbar-brand d-flex justify-content-start text-white" href="#">Meus Chamados</a>
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">

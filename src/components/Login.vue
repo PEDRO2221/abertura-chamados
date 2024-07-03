@@ -121,6 +121,7 @@ form {
 }
 
 .submit {
+  letter-spacing: 0.1em;
   background-color: #f18b11;
   height: 48px;
   width: 328px;
