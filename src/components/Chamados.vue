@@ -36,7 +36,7 @@ export default {
 <style scoped>
 .background {
   background-color: #6ea8fe;
-  height: 100vh;
+  height: 100%;
   display: flex;
   margin: 0px;
   flex-direction: column;
@@ -82,13 +82,16 @@ export default {
 }
 
 .btn-primary {
-  font-family: Poppins;
-  font-weight: 400;
-  border: none;
-  border-radius: 50px;
-  color: #fff;
-  background: #6ea8fe;
-  display: flex;
-  margin: auto;
+    font-family: Poppins;
+    font-weight: 400;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    background: #6ea8fe;
+    float: right;
+    position: fixed;
+    z-index: 1;
+    left: 70%;
+    top: 90%;
 }
 </style>
