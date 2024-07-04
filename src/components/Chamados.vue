@@ -5,12 +5,15 @@
     <div class="main">
       <div class="menu-rapido">
         <ul>
-          <li>Todos</li>
-          <li>Pendentes</li>
-          <li>Concluidos</li>
+          <li class="btn" @click="exibirChamados">Todos</li>
+          <li class="btn" @click="exibirChamados">Pendentes</li>
+          <li class="btn" @click="exibirChamados">Concluidos</li>
         </ul>
       </div>
-    <CardChamados />
+      <CardChamados v-show="exibir" />
+      <button class="btn btn-primary" type="submit">
+        <i class="bi bi-plus-lg"> Novo</i>
+      </button>
     </div>
   </div>
 </template>
@@ -23,9 +26,16 @@ export default {
     NavBarComponent,
     CardChamados,
   },
-  methods: {},
+  methods: {
+    exibirChamados() {
+      this.exibir = !this.exibir;
+    },
+  },
   data() {
-    return {};
+    return {
+      chamadosPendentes: [],
+      exibir: true,
+    };
   },
 };
 </script>
@@ -59,17 +69,33 @@ export default {
   border-radius: 12px 12px 0px 0px;
   height: 90%;
   background-color: white;
+  box-shadow: 1px 1px 20px 1px #00000055;
 }
 
 .menu-rapido ul {
   display: flex;
-  border-radius: 15px 0px 0px 0px;
   justify-content: space-evenly;
-  padding: 10px;
+  padding: 40px;
 }
 .menu-rapido ul li {
-  padding: 5px 8px;
-  border-radius: 15px;
-  background-color: #b4a7b347;
+  min-width: 90px;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 13px;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #eae7ea;
+}
+
+.btn-primary {
+  font-family: Poppins;
+  font-weight: 400;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background: #6ea8fe;
+  display: flex;
+  margin: auto;
 }
 </style>

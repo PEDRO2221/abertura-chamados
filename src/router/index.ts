@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Login from "../components/Login.vue";
-import Home from "../components/Dashboard.vue";
+import Chamados from "../components/Chamados.vue";
 import EsqueceSenha from "../components/EsqueceSenha.vue";
 
 const routes = [
@@ -10,9 +10,9 @@ const routes = [
     component: Login,
   },
   {
-    path: "/home",
-    name: "Dashboard",
-    component: Home,
+    path: "/chamados",
+    name: "Chamados",
+    component: Chamados,
   },
   {
     path: "/senha",

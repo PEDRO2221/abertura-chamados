@@ -11,31 +11,26 @@
         <div class="card-text">
           <div class="card-text-column">
             <p>
-              <img src="../assets/imagens/bilhete.png" alt="ticket" /><strong>{{
-                chamado.id
-              }}</strong>
+              <i class="bi bi-ticket-perforated"></i>
+              <strong>{{ chamado.id }}</strong>
             </p>
             <p>
-              <img src="../assets/imagens/predio-comercial.png" alt="predio" />{{
-                chamado.setor
-              }}
+              <i class="bi bi-building-fill-gear"></i>
+              {{ chamado.setor }}
             </p>
             <p class="check">
-              <img src="../assets/imagens/selecione.png" alt="check" /><strong>{{
-                chamado.status
-              }}</strong>
+              <i class="bi bi-check2-square"></i
+              ><strong>{{ chamado.status }}</strong>
             </p>
           </div>
           <div class="card-text-column">
             <p>
-              <img src="../assets/imagens/calendario.png" alt="calendário" />{{
-                chamado.periodo
-              }}
+              <i class="bi bi-calendar-event"></i>
+              {{ chamado.periodo }}
             </p>
             <p>
-              <img src="../assets/imagens/sereia.png" alt="alerta" />{{
-                chamado.prioridade
-              }}
+              <i class="bi bi-exclamation-diamond"></i>
+              {{ chamado.prioridade }}
             </p>
           </div>
         </div>
@@ -86,18 +81,20 @@ export default {
 <style scoped>
 .card {
   background: #f2f3f5;
-  border-radius: 10px;
-  padding: 10px;
-  max-width: 310px;
-  height: auto;
+  border-radius: 5px;
+  border: none;
+  padding: 6px;
+  max-width: 327px;
+  height: 115px;
   margin: 20px auto;
 }
 
-.card h2 {
+h2 {
+  font-family: Poppins;
+  font-weight: 500;
   font-size: 14px;
+  line-height: 21px;
   text-align: center;
-  margin: 0;
-  margin-bottom: 10px;
 }
 
 .card-content {
@@ -106,15 +103,15 @@ export default {
 }
 
 .card-image {
-  border-radius: 8px;
-  width: 100px;
-  height: 80px;
+  border-radius: 5px;
+  width: 80px;
+  height: 72px;
   margin-right: 20px;
 }
 
 .card-text {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: space-between;
 }
 
@@ -124,17 +121,16 @@ export default {
 }
 
 .card-text-column p {
-  font-size: 10px;
-  margin-bottom: 4px;
+  font-family: Poppins;
+  font-weight: 400;
+  font-size: 11px;
+  margin-bottom: 10px;
   text-align: left;
-  display: flex;
   align-items: center;
 }
 
-.card-text-column p img {
-  margin-right: 10px;
-  height: 16px;
-  width: auto;
+.card-text-column p i {
+  margin-right: 8px;
 }
 
 .check {
