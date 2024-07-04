@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "../components/Login.vue";
-import Chamados from "../components/Chamados.vue";
-import EsqueceSenha from "../components/EsqueceSenha.vue";
+import Login from "../views/Login.vue";
+import Chamados from "../views/Chamados.vue";
+import EsqueceSenha from "../views/EsqueceSenha.vue";
 
 const routes = [
   {

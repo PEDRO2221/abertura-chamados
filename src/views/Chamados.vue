@@ -19,8 +19,8 @@
 </template>
 
 <script lang="ts">
-import CardChamados from "./CardChamados.vue";
-import NavBarComponent from "./NavBarComponent.vue";
+import CardChamados from "../components/CardChamados.vue";
+import NavBarComponent from "../components/NavBarComponent.vue";
 export default {
   components: {
     NavBarComponent,
