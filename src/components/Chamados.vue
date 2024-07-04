@@ -5,12 +5,12 @@
     <div class="main">
       <div class="menu-rapido">
         <ul>
-          <li class="btn" @click="exibirChamados">Todos</li>
-          <li class="btn" @click="exibirChamados">Pendentes</li>
-          <li class="btn" @click="exibirChamados">Concluidos</li>
+          <li class="btn">Todos</li>
+          <li class="btn">Pendentes</li>
+          <li class="btn">Concluidos</li>
         </ul>
       </div>
-      <CardChamados v-show="exibir" />
+      <CardChamados />
       <button class="btn btn-primary" type="submit">
         <i class="bi bi-plus-lg"> Novo</i>
       </button>
@@ -26,16 +26,9 @@ export default {
     NavBarComponent,
     CardChamados,
   },
-  methods: {
-    exibirChamados() {
-      this.exibir = !this.exibir;
-    },
-  },
+  methods: {},
   data() {
-    return {
-      chamadosPendentes: [],
-      exibir: true,
-    };
+    return {};
   },
 };
 </script>
