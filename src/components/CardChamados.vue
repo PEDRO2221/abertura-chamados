@@ -18,9 +18,11 @@
               <i class="bi bi-building-fill-gear"></i>
               {{ chamado.setor }}
             </p>
-            <p class="check">
-              <i class="bi bi-check2-square"></i
-              ><strong>{{ chamado.status }}</strong>
+            <p class="check" v-if="chamado.status">
+              <i class="bi bi-check2-square"></i><strong>Concluído</strong>
+            </p>
+            <p class="pending" v-else>
+              <i class="bi bi-arrow-clockwise"></i><strong>Pendente</strong>
             </p>
           </div>
           <div class="card-text-column">
@@ -40,59 +42,24 @@
 </template>
 
 <script lang="ts">
+import { PropType } from 'vue';
+
 export default {
   name: "CardChamados",
-  data() {
-    return {
-      chamados: [
-        {
-          imagem: "ventilador.jpg",
-          situacao: "O ventilador não está funcionando...",
-          id: "00025",
-          setor: "Manutenção",
-          status: "Concluído",
-          periodo: "Há 3 meses",
-          prioridade: "Baixa",
-        },
-        {
-          imagem: "folha.webp",
-          situacao: "Acabou o estoque de folha A4...",
-          id: "00026",
-          setor: "Reposição",
-          status: "Concluído",
-          periodo: "Há 2 semanas",
-          prioridade: "Baixa",
-        },
-        {
-          imagem: "tomada.jpg",
-          situacao: "Tomada da sala com problema...",
-          id: "00027",
-          setor: "Elétrico",
-          status: "Concluído",
-          periodo: "Há 1 dia",
-          prioridade: "Alta",
-        },
-        {
-          imagem: "ventilador.jpg",
-          situacao: "O ventilador não está funcionando...",
-          id: "00025",
-          setor: "Manutenção",
-          status: "Concluído",
-          periodo: "Há 3 meses",
-          prioridade: "Baixa",
-        },
-        {
-          imagem: "ventilador.jpg",
-          situacao: "O ventilador não está funcionando...",
-          id: "00025",
-          setor: "Manutenção",
-          status: "Concluído",
-          periodo: "Há 3 meses",
-          prioridade: "Baixa",
-        },
-      ],
-    };
-  },
+  props: {
+    chamados: {
+      type: Array as PropType<{
+        imagem: string;
+        situacao: string;
+        id: string;
+        setor: string;
+        status: boolean;
+        periodo: string;
+        prioridade: string;
+      }[]>,
+      required: true
+    }
+  }
 };
 </script>
 
@@ -153,5 +120,9 @@ h2 {
 
 .check {
   color: #20c997;
+}
+
+.pending {
+  color: #f18b11;
 }
 </style>

@@ -1,34 +1,75 @@
 <template>
-  <notifications />
-  <div class="background">
-    <NavBarComponent />
-    <div class="main">
-      <div class="menu-rapido">
-        <ul>
-          <li class="btn">Todos</li>
-          <li class="btn">Pendentes</li>
-          <li class="btn">Concluidos</li>
-        </ul>
+  <div>
+    <notifications />
+    <div class="background">
+      <NavBarComponent />
+      <div class="main">
+        <div class="menu-rapido">
+          <ul>
+            <li @click="ativaTodos" :style="btn1">Todos</li>
+            <li @click="ativaPendentes" :style="btn2">Pendentes</li>
+            <li @click="ativaConcluidos" :style="btn3">Concluídos</li>
+          </ul>
+        </div>
+        <TodosChamados v-show="exibeTodos" />
+        <ChamadosPendentes v-show="exibePendentes" />
+        <ChamadosConcluidos v-show="exibeConcluidos" />
+        <button class="btn btn-primary">
+          <i class="bi bi-plus-lg"> Novo</i>
+        </button>
       </div>
-      <CardChamados />
-      <button class="btn btn-primary" type="submit">
-        <i class="bi bi-plus-lg"> Novo</i>
-      </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import CardChamados from "../components/CardChamados.vue";
+import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
+import ChamadosPendentes from "../components/ChamadosPendentes.vue";
 import NavBarComponent from "../components/NavBarComponent.vue";
+import TodosChamados from "../components/TodosChamados.vue";
+
 export default {
   components: {
     NavBarComponent,
-    CardChamados,
+    ChamadosPendentes,
+    ChamadosConcluidos,
+    TodosChamados,
   },
-  methods: {},
   data() {
-    return {};
+    return {
+      btn1: "background-color: #d0e3fe; color: #518feb;",
+      btn2: "",
+      btn3: "",
+      exibeTodos: true,
+      exibePendentes: false,
+      exibeConcluidos: false,
+    };
+  },
+  methods: {
+    ativaTodos() {
+      this.btn1 = "background-color: #d0e3fe; color: #518feb;";
+      this.btn2 = "";
+      this.btn3 = "";
+      this.exibeTodos = true;
+      this.exibePendentes = false;
+      this.exibeConcluidos = false;
+    },
+    ativaPendentes() {
+      this.btn1 = "";
+      this.btn2 = "background-color: #d0e3fe; color: #518feb;";
+      this.btn3 = "";
+      this.exibeTodos = false;
+      this.exibePendentes = true;
+      this.exibeConcluidos = false;
+    },
+    ativaConcluidos() {
+      this.btn1 = "";
+      this.btn2 = "";
+      this.btn3 = "background-color: #d0e3fe; color: #518feb;";
+      this.exibeTodos = false;
+      this.exibePendentes = false;
+      this.exibeConcluidos = true;
+    },
   },
 };
 </script>
@@ -79,19 +120,24 @@ export default {
   padding: 5px 10px;
   border-radius: 20px;
   background-color: #eae7ea;
+  cursor: pointer;
+}
+
+.menu-rapido ul li:hover {
+  opacity: 0.8;
 }
 
 .btn-primary {
-    font-family: Poppins;
-    font-weight: 400;
-    border: none;
-    border-radius: 50px;
-    color: #fff;
-    background: #6ea8fe;
-    float: right;
-    position: fixed;
-    z-index: 1;
-    left: 70%;
-    top: 90%;
+  font-family: Poppins;
+  font-weight: 400;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background: #6ea8fe;
+  float: right;
+  position: fixed;
+  z-index: 1;
+  left: 70%;
+  top: 90%;
 }
 </style>
