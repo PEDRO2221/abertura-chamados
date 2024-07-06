@@ -1,5 +1,7 @@
 <template>
-  <CardChamados :chamados="chamadosPendentes" />
+  <div>
+    <CardChamados :chamados="chamadosPendentes" />
+  </div>
 </template>
 
 <script lang="ts">

@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import Login from "../views/Login.vue";
 import Chamados from "../views/Chamados.vue";
 import EsqueceSenha from "../views/EsqueceSenha.vue";
+import ChamadosPendentes from "../components/ChamadosPendentes.vue";
+import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
 
 const routes = [
   {
@@ -10,14 +12,26 @@ const routes = [
     component: Login,
   },
   {
-    path: "/chamados",
-    name: "Chamados",
-    component: Chamados,
-  },
-  {
     path: "/senha",
     name: "Recuperacao",
     component: EsqueceSenha,
+  },
+  {
+    path: "/chamados",
+    name: "Chamados",
+    component: Chamados,
+    children: [
+      {
+        path: "/chamados/pendentes",
+        name: "Chamados Pendentes",
+        component: ChamadosPendentes,
+      },
+      {
+        path: "/chamados/concluidos",
+        name: "Chamados Concluidos",
+        component: ChamadosConcluidos,
+      },
+    ],
   },
 ];
 

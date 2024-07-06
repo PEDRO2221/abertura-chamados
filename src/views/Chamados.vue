@@ -11,9 +11,8 @@
             <li @click="ativaConcluidos" :style="btn3">Concluídos</li>
           </ul>
         </div>
-        <TodosChamados v-show="exibeTodos" />
-        <ChamadosPendentes v-show="exibePendentes" />
-        <ChamadosConcluidos v-show="exibeConcluidos" />
+        <router-view></router-view>
+        <TodosChamados v-show="exibirTodos"/>
         <button class="btn btn-primary">
           <i class="bi bi-plus-lg"> Novo</i>
         </button>
@@ -22,17 +21,15 @@
   </div>
 </template>
 
+
 <script lang="ts">
-import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
-import ChamadosPendentes from "../components/ChamadosPendentes.vue";
+import { defineComponent } from "vue";
 import NavBarComponent from "../components/NavBarComponent.vue";
 import TodosChamados from "../components/TodosChamados.vue";
 
-export default {
+export default defineComponent({
   components: {
     NavBarComponent,
-    ChamadosPendentes,
-    ChamadosConcluidos,
     TodosChamados,
   },
   data() {
@@ -40,39 +37,49 @@ export default {
       btn1: "background-color: #d0e3fe; color: #518feb;",
       btn2: "",
       btn3: "",
-      exibeTodos: true,
-      exibePendentes: false,
-      exibeConcluidos: false,
+      exibirTodos: true,
     };
   },
   methods: {
     ativaTodos() {
-      this.btn1 = "background-color: #d0e3fe; color: #518feb;";
-      this.btn2 = "";
-      this.btn3 = "";
-      this.exibeTodos = true;
-      this.exibePendentes = false;
-      this.exibeConcluidos = false;
+      this.$router.push("/chamados");
     },
     ativaPendentes() {
-      this.btn1 = "";
-      this.btn2 = "background-color: #d0e3fe; color: #518feb;";
-      this.btn3 = "";
-      this.exibeTodos = false;
-      this.exibePendentes = true;
-      this.exibeConcluidos = false;
+      this.$router.push("/chamados/pendentes");
     },
     ativaConcluidos() {
-      this.btn1 = "";
-      this.btn2 = "";
-      this.btn3 = "background-color: #d0e3fe; color: #518feb;";
-      this.exibeTodos = false;
-      this.exibePendentes = false;
-      this.exibeConcluidos = true;
+      this.$router.push("/chamados/concluidos");
     },
+    atualizaEstado() {
+      if (this.$route.path === "/chamados") {
+        this.btn1 = "background-color: #d0e3fe; color: #518feb;";
+        this.btn2 = "";
+        this.btn3 = "";
+        this.exibirTodos = true;
+      } else if (this.$route.path === "/chamados/pendentes") {
+        this.btn1 = "";
+        this.btn2 = "background-color: #d0e3fe; color: #518feb;";
+        this.btn3 = "";
+        this.exibirTodos = false;
+      } else if (this.$route.path === "/chamados/concluidos") {
+        this.btn1 = "";
+        this.btn2 = "";
+        this.btn3 = "background-color: #d0e3fe; color: #518feb;";
+        this.exibirTodos = false;
+      }
+    }
   },
-};
+  watch: {
+    $route() {
+      this.atualizaEstado();
+    }
+  },
+  created() {
+    this.atualizaEstado();
+  }
+});
 </script>
+
 
 <style scoped>
 .background {
@@ -101,7 +108,7 @@ export default {
 
 .main {
   border-radius: 12px 12px 0px 0px;
-  height: 90%;
+  height: 100%;
   background-color: white;
   box-shadow: 1px 1px 20px 1px #00000055;
 }
@@ -109,7 +116,7 @@ export default {
 .menu-rapido ul {
   display: flex;
   justify-content: space-evenly;
-  padding: 40px;
+  padding: 20px;
 }
 .menu-rapido ul li {
   min-width: 90px;
