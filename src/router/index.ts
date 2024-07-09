@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Login from "../views/Login.vue";
 import Chamados from "../views/Chamados.vue";
 import EsqueceSenha from "../views/EsqueceSenha.vue";
+import Sobre from "../views/Sobre.vue";
 import ChamadosPendentes from "../components/ChamadosPendentes.vue";
 import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
 
@@ -32,6 +33,11 @@ const routes = [
         component: ChamadosConcluidos,
       },
     ],
+  },
+  {
+    path: "/sobre",
+    name: "Sobre",
+    component: Sobre,
   },
 ];
 
