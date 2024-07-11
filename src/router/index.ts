@@ -5,6 +5,8 @@ import EsqueceSenha from "../views/EsqueceSenha.vue";
 import Sobre from "../views/Sobre.vue";
 import ChamadosPendentes from "../components/ChamadosPendentes.vue";
 import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
+import ChamadosChecked from "../views/ChamadosChecked.vue";
+
 
 const routes = [
   {
@@ -38,6 +40,11 @@ const routes = [
     path: "/sobre",
     name: "Sobre",
     component: Sobre,
+  },
+  {
+    path: "/check",
+    name: "Checked",
+    component: ChamadosChecked,
   },
 ];
 

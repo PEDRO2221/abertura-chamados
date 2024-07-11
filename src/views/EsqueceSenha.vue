@@ -5,16 +5,22 @@
       <h2 class="text-body-secondary">REDEFINIÇÃO DE SENHA</h2>
       <img src="../assets/imagens/esquecisenha.png" alt="" />
       <span>Informe o e-mail para o qual deseja redefinir a sua senha.</span>
-      <Form @submit="" @invalid-submit="">
+      <Form>
         <div class="input-group flex-nowrap">
-          <Field v-model="username" class="form-control" name="email" type="email" rules="required|email"
-            placeholder="Email" />
+          <Field
+            v-model="username"
+            class="form-control"
+            name="email"
+            type="email"
+            rules="required|email"
+            placeholder="Email"
+          />
         </div>
         <div>
           <button type="submit" class="submit btn btn">Redefinir Senha</button>
         </div>
         <div class="redefinir-senha">
-          <a href="#">Voltar ao login</a>
+          <a href="#" @click="back">Voltar ao login</a>
         </div>
       </Form>
     </div>
@@ -22,14 +28,17 @@
 </template>
 
 <script lang="ts">
-import { Form, Field } from 'vee-validate';
+import { Form, Field } from "vee-validate";
 export default {
-  
   components: {
     Form,
     Field,
   },
-  methods: {},
+  methods: {
+    back() {
+      this.$router.push("/");
+    },
+  },
   data() {
     return {
       username: "",

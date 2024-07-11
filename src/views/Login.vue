@@ -19,7 +19,7 @@
 
         </div>
         <div class="redefinir-senha">
-          <a href="#">Esqueceu a senha?</a>
+          <a href="#" @click="abrirEsqueceSenha">Esqueceu a senha?</a>
         </div>
       </Form>
 
@@ -38,11 +38,10 @@ export default {
   },
   methods: {
     onSubmit(values: any) {
-      this.$notify({
-        title: "Login",
-        text: 'Seja bem vindo !',
-        type: 'sucess',
-      });
+      this.$router.push("/chamados");
+    },
+    abrirEsqueceSenha() {
+      this.$router.push("/senha");
     },
     onInvalidSubmit({ values, errors, results }: any) {
       const keys = Object.keys(errors);
