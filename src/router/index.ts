@@ -6,6 +6,7 @@ import Sobre from "../views/Sobre.vue";
 import ChamadosPendentes from "../components/ChamadosPendentes.vue";
 import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
 import ChamadosChecked from "../views/ChamadosChecked.vue";
+import DetalhesChamados from "../views/DetalhesChamados.vue";
 
 
 const routes = [
@@ -45,6 +46,11 @@ const routes = [
     path: "/check",
     name: "Checked",
     component: ChamadosChecked,
+  },
+  {
+    path: "/detalhes",
+    name: "Detalhes",
+    component: DetalhesChamados,
   },
 ];
 
