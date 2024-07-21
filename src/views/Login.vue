@@ -2,39 +2,49 @@
   <notifications />
   <div class="background">
     <div class="header">
-      <img src="@/assets/logo-amigos.png" alt="logo amigos">
+      <img src="@/assets/logo-amigos.png" alt="logo amigos" />
     </div>
     <div class="card login-component">
       <h2 class="text-body-secondary">Abertura de Chamados</h2>
       <Form @submit="onSubmit" @invalid-submit="onInvalidSubmit">
         <div class="input-group flex-nowrap">
-          <Field v-model="username" class="form-control" name="email" type="email" rules="required|email"
-            placeholder="Email" />
+          <Field
+            v-model="username"
+            class="form-control"
+            name="email"
+            type="email"
+            rules="required|email"
+            placeholder="Email"
+          />
         </div>
         <div class="input-group flex-nowrap">
-          <input class="form-control" type="password" v-model="password" required placeholder="Senha" />
+          <input
+            class="form-control"
+            type="password"
+            v-model="password"
+            required
+            placeholder="Senha"
+          />
         </div>
         <div>
-          <button type="submit" class="submit btn btn">Login</button>
-
+          <CompBotao text="ENTRAR" class="login" />
         </div>
         <div class="redefinir-senha">
           <a href="#" @click="abrirEsqueceSenha">Esqueceu a senha?</a>
         </div>
       </Form>
-
     </div>
   </div>
-
 </template>
-
 
 <script lang="ts">
 import { Form, Field } from 'vee-validate';
+import CompBotao from '../components/CompBotao.vue';
 export default {
   components: {
     Form,
     Field,
+    CompBotao,
   },
   methods: {
     onSubmit(values: any) {
@@ -77,7 +87,7 @@ export default {
 }
 
 input {
-  box-shadow: 0px 1px 2px 0px #0000000D;
+  box-shadow: 0px 1px 2px 0px #0000000d;
 }
 
 .background {
@@ -95,7 +105,6 @@ h2 {
   font-weight: 400;
   line-height: 40px;
   text-align: center;
-
 }
 
 .header {
@@ -119,31 +128,17 @@ form {
   align-items: center;
 }
 
-.submit {
-  letter-spacing: 0.1em;
+.login {
   background-color: #f18b11;
-  height: 48px;
-  width: 328px;
-  gap: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 18px;
-  text-align: center;
-  text-transform: uppercase;
 }
 
-.redefinir-senha a{
+.redefinir-senha a {
   color: #616060;
   font-family: Poppins;
   font-size: 15px;
   font-weight: 400;
   line-height: 22.5px;
   text-align: center;
-
 }
 </style>

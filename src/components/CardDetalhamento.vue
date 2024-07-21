@@ -1,75 +1,110 @@
 <template>
-  <div class="tabela">
-    <table>
-      <thead class="head">
-        <tr>
-          <th rowspan="2" class="icon">
-            <i class="bi bi-person-bounding-box"></i>
-          </th>
-          <th class="titulo">Solicitante</th>
-        </tr>
-        <tr>
-          <td class="subtitulo">Tatiane Simplício</td>
-        </tr>
-        <tr>
-          <th rowspan="2" class="icon">
-            <i class="bi bi-house-door"></i>
-          </th>
-          <th class="titulo">Setor</th>
-        </tr>
-        <tr>
-          <td class="subtitulo">Centro de Transformação</td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="opcoes">
-            <div class="opcoes-content">
-              <i class="bi bi-ticket-perforated"></i>
-              <span><strong>00029</strong></span>
-            </div>
-          </td>
-          <td class="opcoes">
-            <div class="opcoes-content">
-              <i class="bi bi-calendar-event"></i>
-              <span>Há 2 dias</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td class="opcoes">
-            <div class="opcoes-content">
-              <i class="bi bi-building-fill-gear"></i>
-              <span>Manutenção</span>
-            </div>
-          </td>
-          <td class="opcoes">
-            <div class="opcoes-content">
-              <i class="bi bi-exclamation-diamond"></i>
-              <span>Baixa</span>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <th colspan="2" class="descricao">Descrição</th>
-        </tr>
-        <tr>
-          <td colspan="2" class="text">
-            <span>Solicito à equipe de serviços a fixação do suporte da TV na sala do saber 1.</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div v-for="chamado in chamados" :key="chamado.id">
+    <section class="text-center">
+      <img
+        :src="`/src/assets/imagens/${chamado.imagem}`"
+        class="rounded"
+        alt="Imagem do chamado"
+      />
+    </section>
+    <div class="tabela">
+      <table>
+        <thead class="head">
+          <tr>
+            <th rowspan="2" class="icon">
+              <i class="bi bi-person-bounding-box"></i>
+            </th>
+            <th class="titulo">Solicitante</th>
+          </tr>
+          <tr>
+            <td class="subtitulo">{{ chamado.solicitante }}</td>
+          </tr>
+          <tr>
+            <th rowspan="2" class="icon">
+              <i class="bi bi-house-door"></i>
+            </th>
+            <th class="titulo">Local</th>
+          </tr>
+          <tr>
+            <td class="subtitulo">{{ chamado.local }}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="opcoes">
+              <div class="opcoes-content">
+                <i class="bi bi-ticket-perforated"></i>
+                <span
+                  ><strong>{{ chamado.id }}</strong></span
+                >
+              </div>
+            </td>
+            <td class="opcoes">
+              <div class="opcoes-content">
+                <i class="bi bi-calendar-event"></i>
+                <span>{{ chamado.periodo }}</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="opcoes">
+              <div class="opcoes-content">
+                <i class="bi bi-building-fill-gear"></i>
+                <span>{{ chamado.setor }}</span>
+              </div>
+            </td>
+            <td class="opcoes">
+              <div class="opcoes-content">
+                <i class="bi bi-exclamation-diamond"></i>
+                <span>{{ chamado.prioridade }}</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th colspan="2" class="descricao">Descrição</th>
+          </tr>
+          <tr>
+            <td colspan="2" class="text">
+              <span>{{ chamado.situacao }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
+import { PropType } from "vue";
+
 export default {
   name: "CardDetalhamento",
+  props: {
+    chamados: {
+      type: Array as PropType<
+        {
+          imagem: string;
+          situacao: string;
+          id: string;
+          setor: string;
+          status: boolean;
+          periodo: string;
+          prioridade: string;
+          solicitante: string;
+          local: string;
+        }[]
+      >,
+      required: true,
+    },
+  },
 };
 </script>
 
 <style scoped>
+img {
+  width: 200px;
+}
+
 .tabela {
   background: #f2f3f5;
   border-radius: 5px;

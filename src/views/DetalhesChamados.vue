@@ -13,25 +13,37 @@
           ></button>
         </div>
       </nav>
-      <section class="text-center">
-        <img
-          src="../assets/imagens/suporte-tv.jpg"
-          class="rounded"
-          alt="Integrantes da Startup"
-        />
-      </section>
-      <CardDetalhamento />
+      
+      <CardDetalhamento :chamados="detalhesChamado" />
     </div>
-    <button type="submit" class="editar btn btn">EDITAR</button>
-  <button type="submit" class="voltar btn btn">VOLTAR</button>
+    <CompBotao text="EDITAR" class="editar" />
+    <CompBotao text="VOLTAR" class="voltar" @click="fecharPagina" />
   </div>
 </template>
 
 <script lang="ts">
-import CardDetalhamento from '../components/CardDetalhamento.vue';
+import CardDetalhamento from "../components/CardDetalhamento.vue";
+import CompBotao from "../components/CompBotao.vue";
 export default {
   name: "DetalhesChamados",
-  components: {CardDetalhamento},
+  components: { CardDetalhamento, CompBotao },
+  data() {
+    return {
+      detalhesChamado: [
+        {
+          imagem: "suporte-tv.jpg",
+          situacao: "Solicito à equipe de serviços a fixação do suporte da TV na sala do saber 1.",
+          id: "00029",
+          setor: "Manutenção",
+          status: true,
+          periodo: "Há 2 dias",
+          prioridade: "Baixa",
+          solicitante: "Tatiane Simplício",
+          local: "Centro de Transformação",
+        },
+      ]
+    }
+  },
   methods: {
     fecharPagina() {
       this.$router.push("/chamados");
@@ -55,26 +67,8 @@ h1 {
   padding: 20px;
 }
 
-img {
-  width: 200px;
-}
-
 button {
   padding: 20px;
-}
-
-.editar, .voltar {
-  letter-spacing: 0.1em;
-  height: 48px;
-  width: 330px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  margin: 10px auto;
 }
 
 .editar {

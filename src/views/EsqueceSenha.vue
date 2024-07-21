@@ -17,7 +17,7 @@
           />
         </div>
         <div>
-          <button type="submit" class="submit btn btn">Redefinir Senha</button>
+          <CompBotao text="Redefinir Senha" class="senha" />
         </div>
         <div class="redefinir-senha">
           <a href="#" @click="back">Voltar ao login</a>
@@ -29,10 +29,12 @@
 
 <script lang="ts">
 import { Form, Field } from "vee-validate";
+import CompBotao from '../components/CompBotao.vue';
 export default {
   components: {
     Form,
     Field,
+    CompBotao,
   },
   methods: {
     back() {
@@ -101,22 +103,9 @@ form {
   align-items: center;
 }
 
-.submit {
-  letter-spacing: 0.1em;
+.senha {
   background-color: #f18b11;
-  height: 48px;
-  width: 328px;
-  gap: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 18px;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .redefinir-senha a {
