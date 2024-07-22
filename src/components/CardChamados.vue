@@ -1,77 +1,95 @@
 <template>
   <div>
     <div class="card" v-for="chamado in chamados" :key="chamado.id">
-      <h2>{{ chamado.situacao }}</h2>
-      <div class="card-content">
-        <img
-          :src="`/src/assets/imagens/${chamado.imagem}`"
-          alt="Imagem do chamado"
-          class="card-image"
-        />
-        <div class="card-text">
-          <div class="card-text-column">
-            <p>
-              <i class="bi bi-ticket-perforated"></i>
-              <strong>{{ chamado.id }}</strong>
-            </p>
-            <p>
-              <i class="bi bi-building-fill-gear"></i>
-              {{ chamado.setor }}
-            </p>
-            <p class="check" v-if="chamado.status">
-              <i class="bi bi-check2-square"></i><strong>Concluído</strong>
-            </p>
-            <p class="pending" v-else>
-              <i class="bi bi-arrow-clockwise"></i><strong>Pendente</strong>
-            </p>
-          </div>
-          <div class="card-text-column">
-            <p>
-              <i class="bi bi-calendar-event"></i>
-              {{ chamado.periodo }}
-            </p>
-            <p>
-              <i class="bi bi-exclamation-diamond"></i>
-              {{ chamado.prioridade }}
-            </p>
+      <router-link :to="`/detalhes/${chamado.id}`" class="rota">
+        <div>
+          <h2>{{ chamado.situacao }}</h2>
+          <div class="card-content">
+            <img
+              :src="`/src/assets/imagens/${chamado.imagem}`"
+              alt="Imagem do chamado"
+              class="card-image"
+            />
+            <div class="card-text">
+              <div class="card-text-column">
+                <p>
+                  <i class="bi bi-ticket-perforated"></i>
+                  <strong>{{ chamado.id }}</strong>
+                </p>
+                <p>
+                  <i class="bi bi-building-fill-gear"></i>
+                  {{ chamado.setor }}
+                </p>
+                <p class="check" v-if="chamado.status">
+                  <i class="bi bi-check2-square"></i><strong>Concluído</strong>
+                </p>
+                <p class="pending" v-else>
+                  <i class="bi bi-arrow-clockwise"></i><strong>Pendente</strong>
+                </p>
+              </div>
+              <div class="card-text-column">
+                <p>
+                  <i class="bi bi-calendar-event"></i>
+                  {{ chamado.periodo }}
+                </p>
+                <p>
+                  <i class="bi bi-exclamation-diamond"></i>
+                  {{ chamado.prioridade }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { PropType } from "vue";
 
 export default {
   name: "CardChamados",
   props: {
     chamados: {
-      type: Array as PropType<{
-        imagem: string;
-        situacao: string;
-        id: string;
-        setor: string;
-        status: boolean;
-        periodo: string;
-        prioridade: string;
-      }[]>,
-      required: true
-    }
-  }
+      type: Array as PropType<
+        {
+          imagem: string;
+          situacao: string;
+          id: string;
+          setor: string;
+          status: boolean;
+          periodo: string;
+          prioridade: string;
+        }[]
+      >,
+      required: true,
+    },
+  },
 };
 </script>
 
 <style scoped>
+.rota {
+  text-decoration: none;
+  color: inherit;
+}
+
 .card {
   background: #f2f3f5;
   border-radius: 5px;
   border: none;
   padding: 6px;
   max-width: 327px;
-  height: 115px;
+  height: auto;
   margin: 20px auto;
+  transition: border 0.5s ease, transform 0.5s ease;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  border: #6da7fc 1px solid;
 }
 
 h2 {

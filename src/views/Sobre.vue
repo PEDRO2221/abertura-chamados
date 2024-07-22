@@ -67,7 +67,6 @@ export default {
 
 <style scoped>
 .background {
-  height: 100vh;
   display: flex;
   margin: 0px;
   flex-direction: column;

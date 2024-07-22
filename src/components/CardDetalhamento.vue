@@ -1,5 +1,5 @@
 <template>
-  <div v-for="chamado in chamados" :key="chamado.id">
+  <div v-for="chamado in detalheChamado" :key="chamado.id">
     <section class="text-center">
       <img
         :src="`/src/assets/imagens/${chamado.imagem}`"
@@ -34,9 +34,7 @@
             <td class="opcoes">
               <div class="opcoes-content">
                 <i class="bi bi-ticket-perforated"></i>
-                <span
-                  ><strong>{{ chamado.id }}</strong></span
-                >
+                <span><strong>{{ chamado.id }}</strong></span>
               </div>
             </td>
             <td class="opcoes">
@@ -75,11 +73,12 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
+import { defineComponent, PropType } from 'vue';
 
-export default {
+export default defineComponent({
   name: "CardDetalhamento",
   props: {
+    id: { type: String, required: true },
     chamados: {
       type: Array as PropType<
         {
@@ -97,12 +96,36 @@ export default {
       required: true,
     },
   },
-};
+  data() {
+    return {
+      detalheChamado: [] as {
+        imagem: string;
+        situacao: string;
+        id: string;
+        setor: string;
+        status: boolean;
+        periodo: string;
+        prioridade: string;
+        solicitante: string;
+        local: string;
+      }[],
+    };
+  },
+  mounted() {
+    const chamado = this.chamados.find((chamado) => chamado.id === this.id);
+    if (chamado) {
+      this.detalheChamado = [chamado];
+    } else {
+      console.error("Chamado não encontrado.");
+    }
+  },
+});
 </script>
 
 <style scoped>
 img {
   width: 200px;
+  height: 140px;
 }
 
 .tabela {
@@ -180,5 +203,7 @@ td {
 .text {
   border: #767575 2px solid;
   padding: 30px 10px;
+  width: 320px;
+  height: auto;
 }
 </style>

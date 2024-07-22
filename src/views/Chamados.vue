@@ -6,13 +6,13 @@
       <div class="main">
         <div class="menu-rapido">
           <ul>
-            <li @click="ativaTodos" :style="btn1">Todos</li>
             <li @click="ativaPendentes" :style="btn2">Pendentes</li>
             <li @click="ativaConcluidos" :style="btn3">Concluídos</li>
+            <li @click="ativaTodos" :style="btn1">Todos</li>
           </ul>
         </div>
         <router-view></router-view>
-        <TodosChamados v-show="exibirTodos"/>
+        <TodosChamados v-show="exibirTodos" />
         <button class="btn btn-primary">
           <i class="bi bi-plus-lg"> Novo</i>
         </button>
@@ -20,7 +20,6 @@
     </div>
   </div>
 </template>
-
 
 <script lang="ts">
 import { defineComponent } from "vue";
@@ -34,10 +33,10 @@ export default defineComponent({
   },
   data() {
     return {
-      btn1: "background-color: #d0e3fe; color: #518feb;",
-      btn2: "",
+      btn1: "",
+      btn2: "background-color: #d0e3fe; color: #518feb;",
       btn3: "",
-      exibirTodos: true,
+      exibirTodos: false,
     };
   },
   methods: {
@@ -67,19 +66,21 @@ export default defineComponent({
         this.btn3 = "background-color: #d0e3fe; color: #518feb;";
         this.exibirTodos = false;
       }
-    }
+    },
   },
   watch: {
     $route() {
       this.atualizaEstado();
-    }
+    },
   },
   created() {
+    if (this.$route.path === "/chamados") {
+      this.$router.push("/chamados/pendentes");
+    }
     this.atualizaEstado();
-  }
+  },
 });
 </script>
-
 
 <style scoped>
 .background {

@@ -48,9 +48,10 @@ const routes = [
     component: ChamadosChecked,
   },
   {
-    path: "/detalhes",
+    path: "/detalhes/:id",
     name: "Detalhes",
     component: DetalhesChamados,
+    props: true,
   },
 ];
 

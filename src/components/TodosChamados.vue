@@ -50,6 +50,18 @@ export default {
           prioridade: "Alta",
         },
         {
+          imagem: "suporte-tv.jpg",
+          situacao:
+            "Solicito à equipe de serviços a fixação do suporte da TV...",
+          id: "00029",
+          setor: "Manutenção",
+          status: true,
+          periodo: "Há 2 dias",
+          prioridade: "Baixa",
+          solicitante: "Tatiane Simplício",
+          local: "Centro de Transformação",
+        },
+        {
           imagem: "ventilador.jpg",
           situacao: "O ventilador não está funcionando...",
           id: "00030",

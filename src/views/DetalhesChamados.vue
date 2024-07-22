@@ -13,8 +13,11 @@
           ></button>
         </div>
       </nav>
-      
-      <CardDetalhamento :chamados="detalhesChamado" />
+
+      <CardDetalhamento
+        :chamados="detalhesChamado"
+        :id="idChamadoSelecionado"
+      />
     </div>
     <CompBotao text="EDITAR" class="editar" />
     <CompBotao text="VOLTAR" class="voltar" @click="fecharPagina" />
@@ -24,6 +27,7 @@
 <script lang="ts">
 import CardDetalhamento from "../components/CardDetalhamento.vue";
 import CompBotao from "../components/CompBotao.vue";
+
 export default {
   name: "DetalhesChamados",
   components: { CardDetalhamento, CompBotao },
@@ -31,8 +35,53 @@ export default {
     return {
       detalhesChamado: [
         {
+          imagem: "ventilador.jpg",
+          situacao: "O ventilador não está funcionando...",
+          id: "00024",
+          setor: "Manutenção",
+          status: true,
+          periodo: "Há 3 meses",
+          prioridade: "Baixa",
+          solicitante: "Tatiane Simplício",
+          local: "Centro de Transformação",
+        },
+        {
+          imagem: "ventilador.jpg",
+          situacao: "O ventilador não está funcionando...",
+          id: "00025",
+          setor: "Manutenção",
+          status: false,
+          periodo: "Há 3 meses",
+          prioridade: "Baixa",
+          solicitante: "Tatiane Simplício",
+          local: "Centro de Transformação",
+        },
+        {
+          imagem: "folha.webp",
+          situacao: "Acabou o estoque de folha A4...",
+          id: "00026",
+          setor: "Reposição",
+          status: false,
+          periodo: "Há 2 semanas",
+          prioridade: "Baixa",
+          solicitante: "Tatiane Simplício",
+          local: "Centro de Transformação",
+        },
+        {
+          imagem: "tomada.jpg",
+          situacao: "Tomada da sala com problema...",
+          id: "00027",
+          setor: "Elétrico",
+          status: true,
+          periodo: "Há 1 dia",
+          prioridade: "Alta",
+          solicitante: "Tatiane Simplício",
+          local: "Centro de Transformação",
+        },
+        {
           imagem: "suporte-tv.jpg",
-          situacao: "Solicito à equipe de serviços a fixação do suporte da TV na sala do saber 1.",
+          situacao:
+            "Solicito à equipe de serviços a fixação do suporte da TV...",
           id: "00029",
           setor: "Manutenção",
           status: true,
@@ -41,7 +90,24 @@ export default {
           solicitante: "Tatiane Simplício",
           local: "Centro de Transformação",
         },
-      ]
+        {
+          imagem: "ventilador.jpg",
+          situacao: "O ventilador não está funcionando...",
+          id: "00030",
+          setor: "Manutenção",
+          status: true,
+          periodo: "Há 3 meses",
+          prioridade: "Baixa",
+          solicitante: "Tatiane Simplício",
+          local: "Centro de Transformação",
+        },
+      ],
+    };
+  },
+  computed: {
+    idChamadoSelecionado() {
+      const id = this.$route.params.id;
+      return typeof id === 'string' ? id : '';
     }
   },
   methods: {
@@ -54,7 +120,6 @@ export default {
 
 <style scoped>
 .background {
-  height: 100vh;
   display: flex;
   margin: 0px;
   flex-direction: column;
