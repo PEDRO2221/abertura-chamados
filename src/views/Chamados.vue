@@ -14,7 +14,7 @@
         <router-view></router-view>
         <TodosChamados v-show="exibirTodos" />
         <button class="btn btn-primary">
-          <i class="bi bi-plus-lg"> Novo</i>
+          <i class="bi bi-plus-lg" @click=""> Novo</i>
         </button>
       </div>
     </div>
@@ -79,6 +79,7 @@ export default defineComponent({
     }
     this.atualizaEstado();
   },
+  //Precisa de um @click para o botão de novo que funcione em todas as telas
 });
 </script>
 

@@ -4,8 +4,10 @@
       <button class="navbar-brand border-0 bg-body">
         <i class="bi-arrow-left text-white"></i>
       </button>
-      <a class="navbar-brand d-flex justify-content-start text-white" href="#"
-        >SOLICITAÇÃO CONFIRMADA</a
+      <a
+        class="navbar-brand d-flex justify-content-start text-white"
+        href="#"
+        >{{ text }}</a
       >
     </div>
   </nav>
@@ -14,7 +16,9 @@
   <script>
 export default {
   name: "NavTabs",
-  methods: {},
+  props: {
+    text: { type: String, required: true },
+  },
 };
 </script>
   

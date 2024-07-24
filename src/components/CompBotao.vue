@@ -25,5 +25,6 @@ export default {
   font-weight: 600;
   text-align: center;
   margin: 10px auto;
+  text-transform: uppercase;
 }
 </style>

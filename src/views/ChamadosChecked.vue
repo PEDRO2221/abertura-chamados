@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <NavTabs />
+    <NavTabs text="SOLICITAÇÃO CONFIRMADA"/>
     <div class="main">
       <div class="checked">
         <img src="../assets/imagens/checked.png" alt="" />
@@ -21,7 +21,7 @@
       </div>
 
       <div>
-        <button type="submit" class="submit btn btn">Voltar</button>
+        <CompBotao text="Voltar" class="btn"/>
       </div>
     </div>
   </div>
@@ -29,6 +29,8 @@
   
   <script lang="ts">
 import { defineComponent } from "vue";
+
+import CompBotao from "../components/CompBotao.vue";
 import NavTabs from "../components/NavTabs.vue";
 
 export default defineComponent({
@@ -36,6 +38,7 @@ export default defineComponent({
   methods: {},
   components: {
     NavTabs,
+    CompBotao,
   },
 });
 </script>
@@ -99,23 +102,9 @@ export default defineComponent({
   padding: 10px 22px;
   border-radius: 6px;
 }
-.submit {
-  letter-spacing: 0.1em;
+.btn {
   background-color: #f18b11;
-  padding: 16px, 24px, 16px, 24px;
-  height: 48px;
-  width: 328px;
-  gap: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: white;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 18px;
-  text-align: center;
-  text-transform: uppercase;
 }
 </style>
   

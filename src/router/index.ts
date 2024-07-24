@@ -7,6 +7,7 @@ import ChamadosPendentes from "../components/ChamadosPendentes.vue";
 import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
 import ChamadosChecked from "../views/ChamadosChecked.vue";
 import DetalhesChamados from "../views/DetalhesChamados.vue";
+import SolicitarServico from "../views/SolicitarServico.vue";
 
 
 const routes = [
@@ -53,6 +54,11 @@ const routes = [
     component: DetalhesChamados,
     props: true,
   },
+  {
+    path: "/solicitacao",
+    name: "Solicitacao",
+    component: SolicitarServico,
+  }
 ];
 
 const router = createRouter({
