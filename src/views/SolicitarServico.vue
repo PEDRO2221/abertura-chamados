@@ -79,7 +79,7 @@
         </div>
         <div class="grup-botao">
           <CompBotao text="Salvar" class="botao" />
-          <CompBotao text="Voltar" class="botao-voltar" />
+          <CompBotao text="Voltar" class="botao-voltar" @click.prevent="voltar"/>
         </div>
       </form>
     </div>
@@ -183,7 +183,6 @@ form {
 }
 .background {
   background-color: #6ea8fe;
-  height: 100vh;
   display: flex;
   margin: 0px;
   flex-direction: column;
