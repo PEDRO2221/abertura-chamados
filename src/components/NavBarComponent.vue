@@ -46,7 +46,7 @@
             </li>
             <li class="nav-item d-flex justify-content-start">
               <i class="bi bi-door-open-fill"></i>
-              <a class="nav-link" href="#">Sair</a>
+              <a class="nav-link" href="#" @click="sair">Sair</a>
             </li>
           </ul>
         </div>
@@ -62,6 +62,9 @@ export default {
     abrirSobre() {
       this.$router.push("/sobre");
     },
+    sair(){
+      this.$router.push("/");
+    }
   },
 };
 </script>
