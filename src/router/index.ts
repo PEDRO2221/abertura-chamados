@@ -8,7 +8,7 @@ import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
 import ChamadosChecked from "../views/ChamadosChecked.vue";
 import DetalhesChamados from "../views/DetalhesChamados.vue";
 import SolicitarServico from "../views/SolicitarServico.vue";
-
+import SolicitaResumo from "../views/SolicitaResumo.vue";
 
 const routes = [
   {
@@ -58,7 +58,12 @@ const routes = [
     path: "/solicitacao",
     name: "Solicitacao",
     component: SolicitarServico,
-  }
+  },
+  {
+    path: "/resumo",
+    name: "Resumo",
+    component: SolicitaResumo,
+  },
 ];
 
 const router = createRouter({

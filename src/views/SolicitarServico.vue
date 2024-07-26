@@ -2,7 +2,7 @@
   <div class="background">
     <NavTabs text="SOLICITAÇÃO DE SERVIÇO" @click="voltar" />
     <div class="main">
-      <form action="" method="post">
+      <form action="" method="">
         <div>
           <label for="nome" class="form-label lb">Nome do Solicitante</label>
           <input
@@ -78,7 +78,7 @@
           </select>
         </div>
         <div class="grup-botao">
-          <CompBotao text="Salvar" class="botao" />
+          <CompBotao text="Salvar" class="botao" @click="solicitar" />
           <CompBotao text="Voltar" class="botao-voltar" @click.prevent="voltar"/>
         </div>
       </form>
@@ -98,6 +98,9 @@ export default {
   methods: {
     voltar() {
       this.$router.push("/chamados");
+    },
+    solicitar() {
+      this.$router.push("/resumo");
     },
   },
 };

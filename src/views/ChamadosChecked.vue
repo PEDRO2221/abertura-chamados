@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <NavTabs text="SOLICITAÇÃO CONFIRMADA"/>
+    <NavTabs text="SOLICITAÇÃO CONFIRMADA" @click="voltar"/>
     <div class="main">
       <div class="checked">
         <img src="../assets/imagens/checked.png" alt="" />
@@ -21,7 +21,7 @@
       </div>
 
       <div>
-        <CompBotao text="Voltar" class="btn"/>
+        <CompBotao text="Voltar" class="btn" @click="voltar"/>
       </div>
     </div>
   </div>
@@ -35,10 +35,14 @@ import NavTabs from "../components/NavTabs.vue";
 
 export default defineComponent({
   name: "Checked",
-  methods: {},
   components: {
     NavTabs,
     CompBotao,
+  },
+  methods: {
+    voltar() {
+      this.$router.push("/chamados");
+    },
   },
 });
 </script>
