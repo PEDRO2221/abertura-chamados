@@ -9,7 +9,7 @@
       <Form @submit="onSubmit" @invalid-submit="onInvalidSubmit">
         <div class="input-group flex-nowrap">
           <Field
-            v-model="username"
+            v-model="email"
             class="form-control"
             name="email"
             type="email"
@@ -38,17 +38,36 @@
 </template>
 
 <script lang="ts">
-import { Form, Field } from 'vee-validate';
-import CompBotao from '../components/CompBotao.vue';
+import { Form, Field } from "vee-validate";
+import CompBotao from "../components/CompBotao.vue";
+import ApiRequester from "../services/ApiRequester";
 export default {
   components: {
     Form,
     Field,
     CompBotao,
   },
+  data() {
+    return {
+      email: "",
+      password: "",
+    };
+  },
   methods: {
-    onSubmit(values: any) {
-      this.$router.push("/chamados");
+    async onSubmit(values: any) {
+      const servico = new ApiRequester();
+      try {
+        await servico.autenticar(this.email, this.password);
+        this.$router.push("/chamados");
+      } catch (error: any) {
+        const mensagem = error.response
+          ? error.response.data.message
+          : "Erro desconhecido";
+        this.$notify({
+          title: mensagem,
+          type: "error",
+        });
+      }
     },
     abrirEsqueceSenha() {
       this.$router.push("/senha");
@@ -56,20 +75,14 @@ export default {
     onInvalidSubmit({ values, errors, results }: any) {
       const keys = Object.keys(errors);
       const firstKey = keys[0];
-      const firstMessage = errors[firstKey]
+      const firstMessage = errors[firstKey];
       this.$notify({
         title: firstMessage,
-        type: 'error',
+        type: "error",
       });
 
-      console.log(errors)
+      console.log(errors);
     },
-  },
-  data() {
-    return {
-      username: '',
-      password: ''
-    };
   },
 };
 </script>
