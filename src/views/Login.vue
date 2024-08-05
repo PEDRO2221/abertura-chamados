@@ -57,7 +57,8 @@ export default {
     async onSubmit(values: any) {
       const servico = new ApiRequester();
       try {
-        await servico.autenticar(this.email, this.password);
+        const token = await servico.autenticar(this.email, this.password);
+        console.log(token)
         this.$router.push("/chamados");
       } catch (error: any) {
         const mensagem = error.response

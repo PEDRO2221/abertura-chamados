@@ -62,9 +62,21 @@ export default {
     abrirSobre() {
       this.$router.push("/sobre");
     },
-    sair(){
-      this.$router.push("/");
-    }
+    // async sair(){
+    //   const servico = new ApiRequester();
+    //   try {
+    //     await servico.sair();
+    //     this.$router.push("/chamados");
+    //   } catch (error: any) {
+    //     const mensagem = error.response
+    //       ? error.response.data.message
+    //       : "Erro desconhecido";
+    //     this.$notify({
+    //       title: mensagem,
+    //       type: "error",
+    //     });
+    //   }
+    // }
   },
 };
 </script>
