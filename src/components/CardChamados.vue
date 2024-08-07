@@ -47,24 +47,47 @@
 
 <script lang="ts">
 import { PropType } from "vue";
+import ApiRequester from "../services/ApiRequester";
 
 export default {
   name: "CardChamados",
-  props: {
-    chamados: {
-      type: Array as PropType<
-        {
-          imagem: string;
-          situacao: string;
-          id: string;
-          setor: string;
-          status: boolean;
-          periodo: string;
-          prioridade: string;
-        }[]
-      >,
-      required: true,
+  created() {
+    this.buscarDados();
+  },
+  data() {
+    return {
+      dados: [],
+      token: sessionStorage.getItem("authToken"), // Adicione seu token aqui
+    };
+  },
+  methods: {
+    async buscarDados() {
+      try {
+        const response = new ApiRequester();
+        const dados = (await response.listartodos()).data;
+        console.log(JSON.stringify(dados))
+        return dados;
+      } catch (error) {
+        console.error("Erro ao fazer a requisição GET:", error);
+      }
     },
+    
+    },
+    props: {
+      chamados: {
+        type: Array as PropType<
+          {
+            imagem: string;
+            situacao: string;
+            id: string;
+            setor: string;
+            status: boolean;
+            periodo: string;
+            prioridade: string;
+          }[]
+        >,
+        required: true,
+      },
   },
 };
 </script>

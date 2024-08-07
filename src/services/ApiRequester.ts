@@ -36,6 +36,9 @@ export default class ApiRequester {
         // Retorna o token
         return token;
 }
+async listartodos() {
+   return this.instance.get("/api/chamados");
+}
   
   async sair(){
     await this.instance.post("/api/autentica/sair");
