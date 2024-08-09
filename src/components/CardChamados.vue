@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="card" v-for="chamado in chamados" :key="chamado.id">
-      <router-link :to="`/detalhes/${chamado.id}`" class="rota">
+    <div class="card" v-for="chamado in chamados" :key="chamado.id_chamado">
+      <router-link :to="`/detalhes/${chamado.id_chamado}`" class="rota">
         <div>
-          <h2>{{ chamado.situacao }}</h2>
+          <h2>{{ chamado.descricao }}</h2>
           <div class="card-content">
             <img
-              :src="`/src/assets/imagens/${chamado.imagem}`"
+              :src="`/imagem_chamado/${chamado.imagem}`"
               alt="Imagem do chamado"
               class="card-image"
             />
@@ -14,13 +14,13 @@
               <div class="card-text-column">
                 <p>
                   <i class="bi bi-ticket-perforated"></i>
-                  <strong>{{ chamado.id }}</strong>
+                  <strong>{{ chamado.id_chamado }}</strong>
                 </p>
                 <p>
                   <i class="bi bi-building-fill-gear"></i>
-                  {{ chamado.setor }}
+                  {{ chamado.setor_solicitante_id }}
                 </p>
-                <p class="check" v-if="chamado.status">
+                <p class="check" v-if="chamado.status != 'aberto'">
                   <i class="bi bi-check2-square"></i><strong>Concluído</strong>
                 </p>
                 <p class="pending" v-else>
@@ -30,11 +30,11 @@
               <div class="card-text-column">
                 <p>
                   <i class="bi bi-calendar-event"></i>
-                  {{ chamado.periodo }}
+                  {{ chamado.data_abertura }}
                 </p>
                 <p>
                   <i class="bi bi-exclamation-diamond"></i>
-                  {{ chamado.prioridade }}
+                  {{ chamado.grau_urgencia }}
                 </p>
               </div>
             </div>
@@ -47,43 +47,26 @@
 
 <script lang="ts">
 import { PropType } from "vue";
-import ApiRequester from "../services/ApiRequester";
 
 export default {
   name: "CardChamados",
-  created() {
-    this.buscarDados();
-  },
-  data() {
-    return {
-      dados: [],
-      token: sessionStorage.getItem("authToken"), // Adicione seu token aqui
-    };
-  },
-  methods: {
-    async buscarDados() {
-      try {
-        const response = new ApiRequester();
-        const dados = (await response.listartodos()).data;
-        console.log(JSON.stringify(dados))
-        return dados;
-      } catch (error) {
-        console.error("Erro ao fazer a requisição GET:", error);
-      }
-    },
-    
-    },
     props: {
       chamados: {
-        type: Array as PropType<
-          {
-            imagem: string;
-            situacao: string;
-            id: string;
-            setor: string;
-            status: boolean;
-            periodo: string;
-            prioridade: string;
+        type: Object as PropType<{
+        id_chamado: number;
+        descricao: string;
+        grau_urgencia: string;
+        setor_solicitante_id: number;
+        setor_manutencao_id: number;
+        gestor_id: number;
+        tecnico_id: number;
+        solicitante_id: number;
+        status: string;
+        custo: string;
+        imagem: string;
+        data_abertura: string;
+        data_fechamento: string | null;
+        data_cancelamento: string | null;
           }[]
         >,
         required: true,

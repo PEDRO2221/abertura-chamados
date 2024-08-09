@@ -1,5 +1,5 @@
 <template>
-  <div v-for="chamado in detalheChamado" :key="chamado.id">
+  <div v-for="chamado in chamados" :key="chamado.id_chamado">
     <section class="text-center">
       <img
         :src="`/src/assets/imagens/${chamado.imagem}`"
@@ -17,7 +17,7 @@
             <th class="titulo">Solicitante</th>
           </tr>
           <tr>
-            <td class="subtitulo">{{ chamado.solicitante }}</td>
+            <td class="subtitulo">{{ chamado.solicitante_id }}</td>
           </tr>
           <tr>
             <th rowspan="2" class="icon">
@@ -26,7 +26,7 @@
             <th class="titulo">Local</th>
           </tr>
           <tr>
-            <td class="subtitulo">{{ chamado.local }}</td>
+            <td class="subtitulo">{{ chamado.setor_solicitante_id }}</td>
           </tr>
         </thead>
         <tbody>
@@ -34,13 +34,13 @@
             <td class="opcoes">
               <div class="opcoes-content">
                 <i class="bi bi-ticket-perforated"></i>
-                <span><strong>{{ chamado.id }}</strong></span>
+                <span><strong>{{ chamado.id_chamado }}</strong></span>
               </div>
             </td>
             <td class="opcoes">
               <div class="opcoes-content">
                 <i class="bi bi-calendar-event"></i>
-                <span>{{ chamado.periodo }}</span>
+                <span>{{ chamado.data_abertura }}</span>
               </div>
             </td>
           </tr>
@@ -48,13 +48,13 @@
             <td class="opcoes">
               <div class="opcoes-content">
                 <i class="bi bi-building-fill-gear"></i>
-                <span>{{ chamado.setor }}</span>
+                <span>{{ chamado.setor_manutencao_id }}</span>
               </div>
             </td>
             <td class="opcoes">
               <div class="opcoes-content">
                 <i class="bi bi-exclamation-diamond"></i>
-                <span>{{ chamado.prioridade }}</span>
+                <span>{{ chamado.grau_urgencia }}</span>
               </div>
             </td>
           </tr>
@@ -63,7 +63,7 @@
           </tr>
           <tr>
             <td colspan="2" class="text">
-              <span>{{ chamado.situacao }}</span>
+              <span>{{ chamado.status }}</span>
             </td>
           </tr>
         </tbody>
@@ -80,17 +80,22 @@ export default defineComponent({
   props: {
     id: { type: String, required: true },
     chamados: {
-      type: Array as PropType<
-        {
-          imagem: string;
-          situacao: string;
-          id: string;
-          setor: string;
-          status: boolean;
-          periodo: string;
-          prioridade: string;
-          solicitante: string;
-          local: string;
+      type: Object as PropType<{
+        id: string;
+        id_chamado: number;
+        descricao: string;
+        grau_urgencia: string;
+        setor_solicitante_id: number;
+        setor_manutencao_id: number;
+        gestor_id: number;
+        tecnico_id: number;
+        solicitante_id: number;
+        status: string;
+        custo: string;
+        imagem: string;
+        data_abertura: string;
+        data_fechamento: string | null;
+        data_cancelamento: string | null;
         }[]
       >,
       required: true,
@@ -99,15 +104,20 @@ export default defineComponent({
   data() {
     return {
       detalheChamado: [] as {
+        id_chamado: number;
+        descricao: string;
+        grau_urgencia: string;
+        setor_solicitante_id: number;
+        setor_manutencao_id: number;
+        gestor_id: number;
+        tecnico_id: number;
+        solicitante_id: number;
+        status: string;
+        custo: string;
         imagem: string;
-        situacao: string;
-        id: string;
-        setor: string;
-        status: boolean;
-        periodo: string;
-        prioridade: string;
-        solicitante: string;
-        local: string;
+        data_abertura: string;
+        data_fechamento: string | null;
+        data_cancelamento: string | null;
       }[],
     };
   },
