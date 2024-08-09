@@ -1,7 +1,12 @@
 <template>
   <div>
+<<<<<<< HEAD
     <div class="card" v-for="chamado in chamados" :key="chamado.id_chamado">
       <router-link :to="`/detalhes/${chamado.id_chamado}`" class="rota">
+=======
+    <div class="card" v-for="chamado in chamados" :key="chamado.id">
+      <router-link :to="`/solicitante/detalhes/${chamado.id}`" class="rota">
+>>>>>>> 68885f406b852a91b99eb4a828398e23fc5fa145
         <div>
           <h2>{{ chamado.descricao }}</h2>
           <div class="card-content">
@@ -50,6 +55,7 @@ import { PropType } from "vue";
 
 export default {
   name: "CardChamados",
+<<<<<<< HEAD
     props: {
       chamados: {
         type: Object as PropType<{
@@ -71,6 +77,44 @@ export default {
         >,
         required: true,
       },
+=======
+  created() {
+    this.buscarDados();
+  },
+  data() {
+    return {
+      dados: [],
+      token: sessionStorage.getItem("authToken"), // Adicione seu token aqui
+    };
+  },
+  methods: {
+    async buscarDados() {
+      try {
+        const response = new ApiRequester();
+        const dados = (await response.listartodos()).data;
+        console.log(JSON.stringify(dados));
+        return dados;
+      } catch (error) {
+        console.error("Erro ao fazer a requisição GET:", error);
+      }
+    },
+  },
+  props: {
+    chamados: {
+      type: Array as PropType<
+        {
+          imagem: string;
+          situacao: string;
+          id: string;
+          setor: string;
+          status: boolean;
+          periodo: string;
+          prioridade: string;
+        }[]
+      >,
+      required: true,
+    },
+>>>>>>> 68885f406b852a91b99eb4a828398e23fc5fa145
   },
 };
 </script>

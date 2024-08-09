@@ -1,12 +1,12 @@
 <template>
   <div class="background">
-    <NavTabs text="RESUMO DA SOLICITAÇÃO" @click="voltar"/>
+    <CompNavTabs text="RESUMO DO CHAMADO" @click="voltar" />
     <div class="main">
       <div>
         <span class="confira">Confira as informações abaixo</span>
       </div>
       <div>
-        <img src="../assets/imagens/tomada.jpg" alt="" class="img" />
+        <img src="../../../assets/imagens/tomada.jpg" alt="" class="img" />
       </div>
       <div class="card-box">
         <table>
@@ -51,7 +51,7 @@
               <td class="opcoes">
                 <i class="bi bi-calendar icon"></i>
                 <div class="opcoes-content">
-                  <strong>Data do solicitação</strong>
+                  <strong>Data do Chamado</strong>
                   <span>27/05/2024</span>
                 </div>
               </td>
@@ -71,36 +71,36 @@
         </table>
       </div>
       <div>
-        <CompBotao text="CONFIRMAR" class="botao1" @click="confirm"/>
-        <CompBotao text="VOLTAR" class="botao2" @click="voltar"/>
+        <CompBotao text="CONFIRMAR" class="botao1" @click="confirm" />
+        <CompBotao text="VOLTAR" class="botao2" @click="voltar" />
       </div>
     </div>
   </div>
 </template>
-    
-    <script lang="ts">
+
+<script lang="ts">
 import { defineComponent } from "vue";
 
-import CompBotao from "../components/CompBotao.vue";
-import NavTabs from "../components/NavTabs.vue";
+import CompBotao from "@/components/CompBotao.vue";
+import CompNavTabs from "@/components/CompNavTabs.vue";
 
 export default defineComponent({
   name: "Resumo",
   components: {
-    NavTabs,
+    CompNavTabs,
     CompBotao,
   },
   methods: {
     voltar() {
-      this.$router.push("/solicitacao");
+      this.$router.push("/solicitante/novo-chamado");
     },
     confirm() {
-      this.$router.push("/check");
+      this.$router.push("/solicitante/check");
     },
   },
 });
 </script>
-    
+
 <style scoped>
 .background {
   background-color: #6ea8fe;
@@ -145,8 +145,8 @@ span {
   line-height: 21px;
   text-align: left;
 }
-.confira{
-  color: #6C757D;
+.confira {
+  color: #6c757d;
 }
 .icon,
 i {
@@ -178,13 +178,12 @@ tbody {
   gap: 15px;
   flex-direction: column;
 }
-.botao1{
+.botao1 {
   background-color: #f18b11;
   color: white;
 }
-.botao2{
-  color: #F18B11;
-  border: 1px solid #F18B11
+.botao2 {
+  color: #f18b11;
+  border: 1px solid #f18b11;
 }
 </style>
-    

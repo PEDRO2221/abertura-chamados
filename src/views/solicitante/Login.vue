@@ -1,8 +1,8 @@
 <template>
-  <notifications />
   <div class="background">
     <div class="header">
-      <img src="@/assets/logo-amigos.png" alt="logo amigos" />
+      <notifications />
+      <img src="../../assets/logo-amigos.png" alt="logo amigos" />
     </div>
     <div class="card login-component">
       <h2 class="text-body-secondary">Abertura de Chamados</h2>
@@ -39,8 +39,9 @@
 
 <script lang="ts">
 import { Form, Field } from "vee-validate";
-import CompBotao from "../components/CompBotao.vue";
-import ApiRequester from "../services/ApiRequester";
+import CompBotao from "@/components/CompBotao.vue";
+import ApiRequester from "../../services/ApiRequester";
+
 export default {
   components: {
     Form,
@@ -58,7 +59,7 @@ export default {
       const servico = new ApiRequester();
       try {
         const token = await servico.autenticar(this.email, this.password);
-        console.log(token)
+        console.log(token);
         this.$router.push("/chamados");
       } catch (error: any) {
         const mensagem = error.response
@@ -71,7 +72,7 @@ export default {
       }
     },
     abrirEsqueceSenha() {
-      this.$router.push("/senha");
+      this.$router.push("/solicitante/racuperar-senha");
     },
     onInvalidSubmit({ values, errors, results }: any) {
       const keys = Object.keys(errors);
@@ -95,18 +96,18 @@ export default {
   flex-direction: column;
   gap: 30px;
   align-items: center;
-  height: 520px;
+  height: 65vh;
   border-radius: 12px 12px 0px 0px;
   justify-content: center;
 }
 
 input {
   box-shadow: 0px 1px 2px 0px #0000000d;
+  height: 48px;
 }
 
 .background {
   background-color: #6ea8fe;
-  height: 100vh;
   display: flex;
   justify-content: center;
   margin: 0px;
@@ -123,8 +124,8 @@ h2 {
 
 .header {
   width: 100%;
-  height: 286px;
-  background-image: url(./src/assets/backgroud.svg);
+  height: 35vh;
+  background-image: url(../../assets/backgroud.svg);
   display: flex;
   align-items: center;
   justify-content: center;

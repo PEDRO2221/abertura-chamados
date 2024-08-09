@@ -1,15 +1,15 @@
 <template>
   <div class="background">
-    <NavTabs text="SOLICITAÇÃO CONFIRMADA" @click="voltar"/>
+    <CompNavTabs text="SOLICITAÇÃO CONFIRMADA" @click="voltar" />
     <div class="main">
       <div class="checked">
-        <img src="../assets/imagens/checked.png" alt="" />
-        <span class="status">SERVIÇO SOLICITADO!</span>
+        <img src="../../../assets/imagens/checked.png" alt="" />
+        <span class="status">CHAMADO SOLICITADO!</span>
       </div>
       <div class="text-div">
         <span class="text">
-          Seu serviço foi encaminhado para o setor responsável. Acompanhe o
-          status do serviço em
+          Seu chamado foi encaminhado para o setor responsável. Acompanhe o
+          status dele em
           <strong>“Meus Chamados”.</strong>
         </span>
       </div>
@@ -21,33 +21,33 @@
       </div>
 
       <div>
-        <CompBotao text="Voltar" class="btn" @click="voltar"/>
+        <CompBotao text="Voltar" class="btn" @click="voltar" />
       </div>
     </div>
   </div>
 </template>
-  
-  <script lang="ts">
+
+<script lang="ts">
 import { defineComponent } from "vue";
 
-import CompBotao from "../components/CompBotao.vue";
-import NavTabs from "../components/NavTabs.vue";
+import CompBotao from "@/components/CompBotao.vue";
+import CompNavTabs from "@/components/CompNavTabs.vue";
 
 export default defineComponent({
   name: "Checked",
   components: {
-    NavTabs,
+    CompNavTabs,
     CompBotao,
   },
   methods: {
     voltar() {
-      this.$router.push("/chamados");
+      this.$router.push("/solicitante/chamados");
     },
   },
 });
 </script>
-  
-  <style scoped>
+
+<style scoped>
 .background {
   background-color: #6ea8fe;
   height: 100vh;
@@ -111,4 +111,3 @@ export default defineComponent({
   color: white;
 }
 </style>
-  

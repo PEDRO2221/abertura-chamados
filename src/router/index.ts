@@ -1,68 +1,75 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "../views/Login.vue";
-import Chamados from "../views/Chamados.vue";
-import EsqueceSenha from "../views/EsqueceSenha.vue";
-import Sobre from "../views/Sobre.vue";
-import ChamadosPendentes from "../components/ChamadosPendentes.vue";
-import ChamadosConcluidos from "../components/ChamadosConcluidos.vue";
-import ChamadosChecked from "../views/ChamadosChecked.vue";
-import DetalhesChamados from "../views/DetalhesChamados.vue";
-import SolicitarServico from "../views/SolicitarServico.vue";
-import SolicitaResumo from "../views/SolicitaResumo.vue";
+import Login from "../views/solicitante/Login.vue";
+import RecuperarSenha from "../views/solicitante/RecuperarSenha.vue";
+import Sobre from "../views/solicitante/Sobre.vue";
+import NovoChamado from "../views/solicitante/chamados/NovoChamado.vue";
+import Chamados from "../views/solicitante/chamados/Chamados.vue";
+import ChamadosPendentes from "../views/solicitante/chamados/ChamadosPendentes.vue";
+import ChamadosConcluidos from "../views/solicitante/chamados/ChamadosConcluidos.vue";
+import ChamadosChecked from "../views/solicitante/chamados/ChamadosChecked.vue";
+import DetalhesChamados from "../views/solicitante/chamados/DetalhesChamados.vue";
+import ResumoChamado from "../views/solicitante/chamados/ResumoChamado.vue";
 
 const routes = [
+  // Rotas do Solicitante
   {
-    path: "/",
-    name: "Login",
-    component: Login,
-  },
-  {
-    path: "/senha",
-    name: "Recuperacao",
-    component: EsqueceSenha,
-  },
-  {
-    path: "/chamados",
-    name: "Chamados",
-    component: Chamados,
+    path: "/solicitante",
+    name: "Solicitante",
     children: [
       {
-        path: "/chamados/pendentes",
-        name: "Chamados Pendentes",
-        component: ChamadosPendentes,
+        path: "/solicitante/login",
+        name: "Login",
+        component: Login,
       },
       {
-        path: "/chamados/concluidos",
-        name: "Chamados Concluidos",
-        component: ChamadosConcluidos,
+        path: "/solicitante/racuperar-senha",
+        name: "Recuperação de Senha",
+        component: RecuperarSenha,
+      },
+      {
+        path: "/solicitante/sobre",
+        name: "Sobre",
+        component: Sobre,
+      },
+      {
+        path: "/solicitante/chamados",
+        name: "Chamados",
+        component: Chamados,
+        children: [
+          {
+            path: "/solicitante/chamados/pendentes",
+            name: "Chamados Pendentes",
+            component: ChamadosPendentes,
+          },
+          {
+            path: "/solicitante/chamados/concluidos",
+            name: "Chamados Concluidos",
+            component: ChamadosConcluidos,
+          },
+        ],
+      },
+      {
+        path: "/solicitante/detalhes/:id",
+        name: "Detalhes",
+        component: DetalhesChamados,
+        props: true,
+      },
+      {
+        path: "/solicitante/novo-chamado",
+        name: "Novo Chamado",
+        component: NovoChamado,
+      },
+      {
+        path: "/solicitante/resumo-chamado",
+        name: "Resumo do Chamado",
+        component: ResumoChamado,
+      },
+      {
+        path: "/solicitante/check",
+        name: "Checked",
+        component: ChamadosChecked,
       },
     ],
-  },
-  {
-    path: "/sobre",
-    name: "Sobre",
-    component: Sobre,
-  },
-  {
-    path: "/check",
-    name: "Checked",
-    component: ChamadosChecked,
-  },
-  {
-    path: "/detalhes/:id",
-    name: "Detalhes",
-    component: DetalhesChamados,
-    props: true,
-  },
-  {
-    path: "/solicitacao",
-    name: "Solicitacao",
-    component: SolicitarServico,
-  },
-  {
-    path: "/resumo",
-    name: "Resumo",
-    component: SolicitaResumo,
   },
 ];
 

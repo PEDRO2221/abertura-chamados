@@ -25,8 +25,8 @@
 </template>
 
 <script lang="ts">
-import CardDetalhamento from "../components/CardDetalhamento.vue";
-import CompBotao from "../components/CompBotao.vue";
+import CardDetalhamento from "@/components/CardDetalhamento.vue";
+import CompBotao from "@/components/CompBotao.vue";
 
 export default {
   name: "DetalhesChamados",
@@ -112,7 +112,7 @@ export default {
   },
   methods: {
     fecharPagina() {
-      this.$router.push("/chamados");
+      this.$router.push("/solicitante/chamados");
     },
   },
 };

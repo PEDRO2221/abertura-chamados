@@ -57,10 +57,10 @@
 
 <script>
 export default {
-  name: "NavBarComponent",
+  name: "CompNavBar",
   methods: {
     abrirSobre() {
-      this.$router.push("/sobre");
+      this.$router.push("/solicitante/sobre");
     },
     // async sair(){
     //   const servico = new ApiRequester();

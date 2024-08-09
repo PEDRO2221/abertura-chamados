@@ -2,7 +2,7 @@
   <div>
     <notifications />
     <div class="background">
-      <NavBarComponent />
+      <CompNavBar />
       <div class="main">
         <div class="menu-rapido">
           <ul>
@@ -23,12 +23,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import NavBarComponent from "../components/NavBarComponent.vue";
-import TodosChamados from "../components/TodosChamados.vue";
+import CompNavBar from "../../../components/CompNavBar.vue";
+import TodosChamados from "./TodosChamados.vue";
 
 export default defineComponent({
   components: {
-    NavBarComponent,
+    CompNavBar,
     TodosChamados,
   },
   data() {
@@ -41,35 +41,35 @@ export default defineComponent({
   },
   methods: {
     ativaTodos() {
-      this.$router.push("/chamados");
+      this.$router.push("/solicitante/chamados");
     },
     ativaPendentes() {
-      this.$router.push("/chamados/pendentes");
+      this.$router.push("/solicitante/chamados/pendentes");
     },
     ativaConcluidos() {
-      this.$router.push("/chamados/concluidos");
+      this.$router.push("/solicitante/chamados/concluidos");
     },
     atualizaEstado() {
-      if (this.$route.path === "/chamados") {
+      if (this.$route.path === "/solicitante/chamados") {
         this.btn1 = "background-color: #d0e3fe; color: #518feb;";
         this.btn2 = "";
         this.btn3 = "";
         this.exibirTodos = true;
-      } else if (this.$route.path === "/chamados/pendentes") {
+      } else if (this.$route.path === "/solicitante/chamados/pendentes") {
         this.btn1 = "";
         this.btn2 = "background-color: #d0e3fe; color: #518feb;";
         this.btn3 = "";
         this.exibirTodos = false;
-      } else if (this.$route.path === "/chamados/concluidos") {
+      } else if (this.$route.path === "/solicitante/chamados/concluidos") {
         this.btn1 = "";
         this.btn2 = "";
         this.btn3 = "background-color: #d0e3fe; color: #518feb;";
         this.exibirTodos = false;
       }
     },
-    novoChamado () {
-      this.$router.push("/solicitacao")
-    }
+    novoChamado() {
+      this.$router.push("/solicitante/novo-chamado");
+    },
   },
   watch: {
     $route() {
@@ -77,8 +77,8 @@ export default defineComponent({
     },
   },
   created() {
-    if (this.$route.path === "/chamados") {
-      this.$router.push("/chamados/pendentes");
+    if (this.$route.path === "/solicitante/chamados") {
+      this.$router.push("/solicitante/chamados/pendentes");
     }
     this.atualizaEstado();
   },

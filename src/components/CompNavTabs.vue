@@ -2,7 +2,7 @@
   <nav class="navbar bg-body fixed menu">
     <div class="container-fluid d-flex justify-content-start">
       <button class="navbar-brand border-0 bg-body">
-        <i class="bi-arrow-left text-white"></i>
+        <i class="bi-chevron-left text-white"></i>
       </button>
       <a
         class="navbar-brand d-flex justify-content-start text-white"
@@ -15,7 +15,7 @@
   
   <script>
 export default {
-  name: "NavTabs",
+  name: "CompNavTabs",
   props: {
     text: { type: String, required: true },
   },
