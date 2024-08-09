@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <NavTabs text="SOLICITAÇÃO DE SERVIÇO" @click="voltar" />
+    <CompNavTabs text="SOLICITAÇÃO DO CHAMADO" @click="voltar" />
     <div class="main">
       <form action="" method="">
         <div>
@@ -9,7 +9,7 @@
             type="text"
             class="form-control"
             id="name"
-            value="Tatiane Simplício"
+            value=""
           />
         </div>
         <div>
@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="inputs-grandes">
-          <label for="data" class="form-label lb">DATA DA SOLICITAÇÃO</label>
+          <label for="data" class="form-label lb">DATA DO CHAMADO</label>
           <div class="input-group">
             <span class="input-group-text" id="addon-wrapping">
               <i class="bi bi-calendar-plus"></i>
@@ -59,24 +59,6 @@
             <option value="3">Baixa</option>
           </select>
         </div>
-        <div>
-          <label for="nome" class="form-label lb">NÍVEL DE PRIORIDADE</label>
-          <select class="form-select">
-            <option selected>Selecionar</option>
-            <option value="1">Alta</option>
-            <option value="2">Média</option>
-            <option value="3">Baixa</option>
-          </select>
-        </div>
-        <div>
-          <label for="nome" class="form-label lb">NÍVEL DE PRIORIDADE</label>
-          <select class="form-select">
-            <option selected>Selecionar</option>
-            <option value="1">Alta</option>
-            <option value="2">Média</option>
-            <option value="3">Baixa</option>
-          </select>
-        </div>
         <div class="grup-botao">
           <CompBotao text="Salvar" class="botao" @click="solicitar" />
           <CompBotao text="Voltar" class="botao-voltar" @click.prevent="voltar"/>
@@ -87,20 +69,20 @@
 </template>
   
   <script lang="ts">
-import CompBotao from "../components/CompBotao.vue";
-import NavTabs from "../components/NavTabs.vue";
+import CompBotao from "@/components/CompBotao.vue";
+import CompNavTabs from "@/components/CompNavTabs.vue";
 export default {
-  name: "Solicitacao",
+  name: "NovoChamado",
   components: {
     CompBotao,
-    NavTabs,
+    CompNavTabs,
   },
   methods: {
     voltar() {
-      this.$router.push("/chamados");
+      this.$router.push("/solicitante/chamados");
     },
     solicitar() {
-      this.$router.push("/resumo");
+      this.$router.push("/solicitante/resumo-chamado");
     },
   },
 };

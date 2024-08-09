@@ -16,7 +16,7 @@
       <section class="text-center">
         <h2>Startup Do Bem</h2>
         <img
-          src="../assets/imagens/startup.jpeg"
+          src="../../assets/imagens/startup.jpeg"
           class="rounded"
           alt="Integrantes da Startup"
         />
@@ -59,7 +59,7 @@ export default {
   components: {},
   methods: {
     fecharPagina() {
-      this.$router.push("/chamados");
+      this.$router.push("/solicitante/chamados");
     },
   },
 };

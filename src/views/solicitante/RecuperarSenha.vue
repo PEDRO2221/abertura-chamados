@@ -1,9 +1,10 @@
 <template>
   <notifications />
   <div class="background">
+    <CompNavTabs text="VOLTAR" @click="back"/>
     <div class="card login-component">
       <h2 class="text-body-secondary">REDEFINIÇÃO DE SENHA</h2>
-      <img src="../assets/imagens/esquecisenha.png" alt="" />
+      <img src="../../assets/imagens/esquecisenha.png" alt="Imagem de um Cadeado" />
       <span>Informe o e-mail para o qual deseja redefinir a sua senha.</span>
       <Form>
         <div class="input-group flex-nowrap">
@@ -29,16 +30,19 @@
 
 <script lang="ts">
 import { Form, Field } from "vee-validate";
-import CompBotao from '../components/CompBotao.vue';
+import CompBotao from "@/components/CompBotao.vue";
+import CompNavTabs from "@/components/CompNavTabs.vue";
+
 export default {
   components: {
     Form,
     Field,
     CompBotao,
+    CompNavTabs
   },
   methods: {
     back() {
-      this.$router.push("/");
+      this.$router.push("/solicitante/login");
     },
   },
   data() {
@@ -58,6 +62,8 @@ export default {
   align-items: center;
   height: 100%;
   justify-content: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .login-component img {
@@ -77,6 +83,7 @@ export default {
 
 input {
   box-shadow: 0px 1px 2px 0px #0000000d;
+  height: 48px;
 }
 
 .background {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="card" v-for="chamado in chamados" :key="chamado.id">
-      <router-link :to="`/detalhes/${chamado.id}`" class="rota">
+      <router-link :to="`/solicitante/detalhes/${chamado.id}`" class="rota">
         <div>
           <h2>{{ chamado.situacao }}</h2>
           <div class="card-content">
@@ -65,29 +65,28 @@ export default {
       try {
         const response = new ApiRequester();
         const dados = (await response.listartodos()).data;
-        console.log(JSON.stringify(dados))
+        console.log(JSON.stringify(dados));
         return dados;
       } catch (error) {
         console.error("Erro ao fazer a requisição GET:", error);
       }
     },
-    
+  },
+  props: {
+    chamados: {
+      type: Array as PropType<
+        {
+          imagem: string;
+          situacao: string;
+          id: string;
+          setor: string;
+          status: boolean;
+          periodo: string;
+          prioridade: string;
+        }[]
+      >,
+      required: true,
     },
-    props: {
-      chamados: {
-        type: Array as PropType<
-          {
-            imagem: string;
-            situacao: string;
-            id: string;
-            setor: string;
-            status: boolean;
-            periodo: string;
-            prioridade: string;
-          }[]
-        >,
-        required: true,
-      },
   },
 };
 </script>
