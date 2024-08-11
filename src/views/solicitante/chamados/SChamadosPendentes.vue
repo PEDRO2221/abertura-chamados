@@ -1,16 +1,16 @@
 <template>
   <div>
-    <CardChamados :chamados="dados" />
+    <SCardChamados :chamados="dados" />
   </div>
 </template>
 
 <script lang="ts">
-import CardChamados from "@/components/CardChamados.vue";
+import SCardChamados from "@/components/solicitante/SCardChamados.vue";
 
 export default {
-  name: "ChamadosPendentes",
+  name: "SChamadosPendentes",
   components: {
-    CardChamados,
+    SCardChamados,
   },
   data() {
     return {

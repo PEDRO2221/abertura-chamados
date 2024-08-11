@@ -55,7 +55,7 @@
 
 <script lang="ts">
 export default {
-  name: "Sobre",
+  name: "SSobre",
   components: {},
   methods: {
     fecharPagina() {

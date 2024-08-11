@@ -15,7 +15,7 @@
   
   <script>
 export default {
-  name: "CompNavTabs",
+  name: "SCompNavTabs",
   props: {
     text: { type: String, required: true },
   },
@@ -24,7 +24,7 @@ export default {
   
   <style scoped>
 .background {
-  background-color: #6ea8fe;
+  background-color: #555450;
   height: 100vh;
   display: flex;
   margin: 0px;

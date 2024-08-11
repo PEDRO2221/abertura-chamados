@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <CompNavTabs text="SOLICITAÇÃO CONFIRMADA" @click="voltar" />
+    <SCompNavTabs text="SOLICITAÇÃO CONFIRMADA" @click="voltar" />
     <div class="main">
       <div class="checked">
         <img src="../../../assets/imagens/checked.png" alt="" />
@@ -21,7 +21,7 @@
       </div>
 
       <div>
-        <CompBotao text="Voltar" class="btn" @click="voltar" />
+        <SCompBotao text="Voltar" class="btn" @click="voltar" />
       </div>
     </div>
   </div>
@@ -30,14 +30,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import CompBotao from "@/components/CompBotao.vue";
-import CompNavTabs from "@/components/CompNavTabs.vue";
+import SCompBotao from "@/components/solicitante/SCompBotao.vue";
+import SCompNavTabs from "@/components/solicitante/SCompNavTabs.vue";
 
 export default defineComponent({
-  name: "Checked",
+  name: "SChamadosChecked",
   components: {
-    CompNavTabs,
-    CompBotao,
+    SCompNavTabs,
+    SCompBotao,
   },
   methods: {
     voltar() {

@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <CompNavTabs text="RESUMO DO CHAMADO" @click="voltar" />
+    <SCompNavTabs text="RESUMO DO CHAMADO" @click="voltar" />
     <div class="main">
       <div>
         <span class="confira">Confira as informações abaixo</span>
@@ -71,8 +71,8 @@
         </table>
       </div>
       <div>
-        <CompBotao text="CONFIRMAR" class="botao1" @click="confirm" />
-        <CompBotao text="VOLTAR" class="botao2" @click="voltar" />
+        <SCompBotao text="CONFIRMAR" class="botao1" @click="confirm" />
+        <SCompBotao text="VOLTAR" class="botao2" @click="voltar" />
       </div>
     </div>
   </div>
@@ -81,14 +81,14 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-import CompBotao from "@/components/CompBotao.vue";
-import CompNavTabs from "@/components/CompNavTabs.vue";
+import SCompBotao from "@/components/solicitante/SCompBotao.vue";
+import SCompNavTabs from "@/components/solicitante/SCompNavTabs.vue";
 
 export default defineComponent({
-  name: "Resumo",
+  name: "SResumoChamado",
   components: {
-    CompNavTabs,
-    CompBotao,
+    SCompNavTabs,
+    SCompBotao,
   },
   methods: {
     voltar() {

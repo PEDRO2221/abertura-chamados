@@ -57,7 +57,7 @@
 
 <script>
 export default {
-  name: "CompNavBar",
+  name: "SCompNavBar",
   methods: {
     abrirSobre() {
       this.$router.push("/solicitante/sobre");

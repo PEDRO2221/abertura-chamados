@@ -76,7 +76,7 @@
 import { defineComponent, PropType } from 'vue';
 
 export default defineComponent({
-  name: "CardDetalhamento",
+  name: "SCardDetalhamento",
   props: {
     id: { type: String, required: true },
     chamados: {

@@ -27,7 +27,7 @@
           />
         </div>
         <div>
-          <CompBotao text="ENTRAR" class="login" />
+          <GCompBotao text="ENTRAR" class="login" />
         </div>
         <div class="redefinir-senha">
           <a href="#" @click="abrirEsqueceSenha">Esqueceu a senha?</a>
@@ -39,14 +39,15 @@
 
 <script lang="ts">
 import { Form, Field } from "vee-validate";
-import CompBotao from "@/components/CompBotao.vue";
+import GCompBotao from "@/components/gestor/GCompBotao.vue";
 import ApiRequester from "../../services/ApiRequester";
 
 export default {
+  name: "GLogin",
   components: {
     Form,
     Field,
-    CompBotao,
+    GCompBotao,
   },
   data() {
     return {
@@ -60,7 +61,7 @@ export default {
       try {
         const token = await servico.autenticar(this.email, this.password);
         console.log(token);
-        this.$router.push("/chamados");
+        this.$router.push("/gestor/chamados");
       } catch (error: any) {
         const mensagem = error.response
           ? error.response.data.message
@@ -72,7 +73,7 @@ export default {
       }
     },
     abrirEsqueceSenha() {
-      this.$router.push("/solicitante/racuperar-senha");
+      this.$router.push("/gestor/racuperar-senha");
     },
     onInvalidSubmit({ values, errors, results }: any) {
       const keys = Object.keys(errors);
@@ -107,7 +108,7 @@ input {
 }
 
 .background {
-  background-color: #6ea8fe;
+  background-color: #555450;
   display: flex;
   justify-content: center;
   margin: 0px;
@@ -125,7 +126,8 @@ h2 {
 .header {
   width: 100%;
   height: 35vh;
-  background-image: url(../../assets/backgroud.svg);
+  background-image: url(../../assets/login-gestor.svg);
+  background-size: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

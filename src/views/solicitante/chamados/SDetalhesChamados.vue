@@ -14,23 +14,23 @@
         </div>
       </nav>
 
-      <CardDetalhamento
+      <SCardDetalhamento
         :chamados="detalhesChamado"
         :id="idChamadoSelecionado"
       />
     </div>
-    <CompBotao text="EDITAR" class="editar" />
-    <CompBotao text="VOLTAR" class="voltar" @click="fecharPagina" />
+    <SCompBotao text="EDITAR" class="editar" />
+    <SCompBotao text="VOLTAR" class="voltar" @click="fecharPagina" />
   </div>
 </template>
 
 <script lang="ts">
-import CardDetalhamento from "@/components/CardDetalhamento.vue";
-import CompBotao from "@/components/CompBotao.vue";
+import SCardDetalhamento from "@/components/solicitante/SCardDetalhamento.vue";
+import SCompBotao from "@/components/solicitante/SCompBotao.vue";
 
 export default {
-  name: "DetalhesChamados",
-  components: { CardDetalhamento, CompBotao },
+  name: "SDetalhesChamados",
+  components: { SCardDetalhamento, SCompBotao },
   data() {
     return {
       detalhesChamado: [

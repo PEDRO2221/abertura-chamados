@@ -1,14 +1,20 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Login from "../views/solicitante/Login.vue";
-import RecuperarSenha from "../views/solicitante/RecuperarSenha.vue";
-import Sobre from "../views/solicitante/Sobre.vue";
-import NovoChamado from "../views/solicitante/chamados/NovoChamado.vue";
-import Chamados from "../views/solicitante/chamados/Chamados.vue";
-import ChamadosPendentes from "../views/solicitante/chamados/ChamadosPendentes.vue";
-import ChamadosConcluidos from "../views/solicitante/chamados/ChamadosConcluidos.vue";
-import ChamadosChecked from "../views/solicitante/chamados/ChamadosChecked.vue";
-import DetalhesChamados from "../views/solicitante/chamados/DetalhesChamados.vue";
-import ResumoChamado from "../views/solicitante/chamados/ResumoChamado.vue";
+
+// Importes das Rotas do Solicitante
+import SLogin from "../views/solicitante/SLogin.vue";
+import SRecuperarSenha from "../views/solicitante/SRecuperarSenha.vue";
+import SSobre from "../views/solicitante/SSobre.vue";
+import SNovoChamado from "../views/solicitante/chamados/SNovoChamado.vue";
+import SChamados from "../views/solicitante/chamados/SChamados.vue";
+import SChamadosPendentes from "../views/solicitante/chamados/SChamadosPendentes.vue";
+import SChamadosConcluidos from "../views/solicitante/chamados/SChamadosConcluidos.vue";
+import SChamadosChecked from "../views/solicitante/chamados/SChamadosChecked.vue";
+import SDetalhesChamados from "../views/solicitante/chamados/SDetalhesChamados.vue";
+import SResumoChamado from "@/views/solicitante/chamados/SResumoChamado.vue";
+
+// Importes das Rotas do Gestor
+import GLogin from "../views/gestor/GLogin.vue";
+import GRecuperarSenha from "../views/gestor/GRecuperarSenha.vue";
 
 const routes = [
   // Rotas do Solicitante
@@ -18,56 +24,74 @@ const routes = [
     children: [
       {
         path: "/solicitante/login",
-        name: "Login",
-        component: Login,
+        name: "SLogin",
+        component: SLogin,
       },
       {
         path: "/solicitante/racuperar-senha",
-        name: "Recuperação de Senha",
-        component: RecuperarSenha,
+        name: "SRecuperação de Senha",
+        component: SRecuperarSenha,
       },
       {
         path: "/solicitante/sobre",
-        name: "Sobre",
-        component: Sobre,
+        name: "SSobre",
+        component: SSobre,
       },
       {
         path: "/solicitante/chamados",
-        name: "Chamados",
-        component: Chamados,
+        name: "SChamados",
+        component: SChamados,
         children: [
           {
             path: "/solicitante/chamados/pendentes",
-            name: "Chamados Pendentes",
-            component: ChamadosPendentes,
+            name: "SChamados Pendentes",
+            component: SChamadosPendentes,
           },
           {
             path: "/solicitante/chamados/concluidos",
-            name: "Chamados Concluidos",
-            component: ChamadosConcluidos,
+            name: "SChamados Concluidos",
+            component: SChamadosConcluidos,
           },
         ],
       },
       {
         path: "/solicitante/detalhes/:id",
-        name: "Detalhes",
-        component: DetalhesChamados,
+        name: "SDetalhes",
+        component: SDetalhesChamados,
         props: true,
       },
       {
         path: "/solicitante/novo-chamado",
-        name: "Novo Chamado",
-        component: NovoChamado,
+        name: "SNovo Chamado",
+        component: SNovoChamado,
       },
       {
         path: "/solicitante/resumo-chamado",
-        name: "Resumo do Chamado",
-        component: ResumoChamado,
+        name: "SResumo do Chamado",
+        component: SResumoChamado,
       },
       {
         path: "/solicitante/check",
-        name: "Checked",
-        component: ChamadosChecked,
+        name: "SChecked",
+        component: SChamadosChecked,
+      },
+    ],
+  },
+
+  // Rotas do Gestor
+  {
+    path: "/gestor",
+    name: "Gestor",
+    children: [
+      {
+        path: "/gestor/login",
+        name: "GLogin",
+        component: GLogin,
+      },
+      {
+        path: "/gestor/racuperar-senha",
+        name: "GRecuperação de Senha",
+        component: GRecuperarSenha,
       },
     ],
   },

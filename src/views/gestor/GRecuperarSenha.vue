@@ -1,7 +1,7 @@
 <template>
   <notifications />
   <div class="background">
-    <CompNavTabs text="VOLTAR" @click="back"/>
+    <GCompNavTabs text="VOLTAR" @click="back"/>
     <div class="card login-component">
       <h2 class="text-body-secondary">REDEFINIÇÃO DE SENHA</h2>
       <img src="../../assets/imagens/esquecisenha.png" alt="Imagem de um Cadeado" />
@@ -18,7 +18,7 @@
           />
         </div>
         <div>
-          <CompBotao text="Redefinir Senha" class="senha" />
+          <GCompBotao text="Redefinir Senha" class="senha" />
         </div>
         <div class="redefinir-senha">
           <a href="#" @click="back">Voltar ao login</a>
@@ -30,19 +30,20 @@
 
 <script lang="ts">
 import { Form, Field } from "vee-validate";
-import CompBotao from "@/components/CompBotao.vue";
-import CompNavTabs from "@/components/CompNavTabs.vue";
+import GCompBotao from "@/components/gestor/GCompBotao.vue";
+import GCompNavTabs from "@/components/gestor/GCompNavTabs.vue";
 
 export default {
+  name: "GRecuperarSenha",
   components: {
     Form,
     Field,
-    CompBotao,
-    CompNavTabs
+    GCompBotao,
+    GCompNavTabs
   },
   methods: {
     back() {
-      this.$router.push("/solicitante/login");
+      this.$router.push("/gestor/login");
     },
   },
   data() {
@@ -87,7 +88,7 @@ input {
 }
 
 .background {
-  background-color: #6ea8fe;
+  background-color: #555450;
   height: 100vh;
   display: flex;
   justify-content: center;
