@@ -1,12 +1,7 @@
 <template>
   <div>
-<<<<<<< HEAD
     <div class="card" v-for="chamado in chamados" :key="chamado.id_chamado">
       <router-link :to="`/detalhes/${chamado.id_chamado}`" class="rota">
-=======
-    <div class="card" v-for="chamado in chamados" :key="chamado.id">
-      <router-link :to="`/solicitante/detalhes/${chamado.id}`" class="rota">
->>>>>>> 68885f406b852a91b99eb4a828398e23fc5fa145
         <div>
           <h2>{{ chamado.descricao }}</h2>
           <div class="card-content">
@@ -52,32 +47,10 @@
 
 <script lang="ts">
 import { PropType } from "vue";
-
+import ApiRequester from "../services/ApiRequester";
 export default {
+
   name: "CardChamados",
-<<<<<<< HEAD
-    props: {
-      chamados: {
-        type: Object as PropType<{
-        id_chamado: number;
-        descricao: string;
-        grau_urgencia: string;
-        setor_solicitante_id: number;
-        setor_manutencao_id: number;
-        gestor_id: number;
-        tecnico_id: number;
-        solicitante_id: number;
-        status: string;
-        custo: string;
-        imagem: string;
-        data_abertura: string;
-        data_fechamento: string | null;
-        data_cancelamento: string | null;
-          }[]
-        >,
-        required: true,
-      },
-=======
   created() {
     this.buscarDados();
   },
@@ -99,23 +72,29 @@ export default {
       }
     },
   },
-  props: {
-    chamados: {
-      type: Array as PropType<
-        {
-          imagem: string;
-          situacao: string;
-          id: string;
-          setor: string;
-          status: boolean;
-          periodo: string;
-          prioridade: string;
-        }[]
-      >,
-      required: true,
-    },
->>>>>>> 68885f406b852a91b99eb4a828398e23fc5fa145
-  },
+    props: {
+      chamados: {
+        type: Object as PropType<{
+        id_chamado: number;
+        descricao: string;
+        grau_urgencia: string;
+        setor_solicitante_id: number;
+        setor_manutencao_id: number;
+        gestor_id: number;
+        tecnico_id: number;
+        solicitante_id: number;
+        status: string;
+        custo: string;
+        imagem: string;
+        data_abertura: string;
+        data_fechamento: string | null;
+        data_cancelamento: string | null;
+          }[]
+        >,
+        required: true,
+      },
+  
+}
 };
 </script>
 

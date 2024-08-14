@@ -39,7 +39,7 @@
 
 <script lang="ts">
 import { Form, Field } from "vee-validate";
-import CompBotao from "@/components/CompBotao.vue";
+import CompBotao from "../../components/CompBotao.vue";
 import ApiRequester from "../../services/ApiRequester";
 
 export default {
@@ -60,7 +60,7 @@ export default {
       try {
         const token = await servico.autenticar(this.email, this.password);
         console.log(token);
-        this.$router.push("/chamados");
+        this.$router.push("/solicitante/chamados");
       } catch (error: any) {
         const mensagem = error.response
           ? error.response.data.message

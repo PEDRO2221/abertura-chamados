@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import CardChamados from "@/components/CardChamados.vue";
+import CardChamados from "../../../components/CardChamados.vue";
 
 export default {
   name: "ChamadosConcluidos",
