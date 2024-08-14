@@ -2,7 +2,7 @@
   <div>
     <notifications />
     <div class="background">
-      <CompNavBar />
+      <SCompNavBar />
       <div class="main">
         <div class="menu-rapido">
           <ul>
@@ -12,7 +12,7 @@
           </ul>
         </div>
         <router-view></router-view>
-        <TodosChamados v-show="exibirTodos" />
+        <STodosChamados v-show="exibirTodos" />
         <button class="btn btn-primary">
           <i class="bi bi-plus-lg" @click="novoChamado"> Novo</i>
         </button>
@@ -23,13 +23,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import CompNavBar from "../../../components/CompNavBar.vue";
-import TodosChamados from "./TodosChamados.vue";
+import SCompNavBar from "../../../components/solicitante/SCompNavBar.vue";
+import STodosChamados from "./STodosChamados.vue";
 
 export default defineComponent({
+  name: "SChamados",
   components: {
-    CompNavBar,
-    TodosChamados,
+    SCompNavBar,
+    STodosChamados,
   },
   data() {
     return {

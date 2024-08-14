@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <CompNavTabs text="SOLICITAÇÃO DO CHAMADO" @click="voltar" />
+    <SCompNavTabs text="SOLICITAÇÃO DO CHAMADO" @click="voltar" />
     <div class="main">
       <form action="" method="">
         <div>
@@ -60,8 +60,8 @@
           </select>
         </div>
         <div class="grup-botao">
-          <CompBotao text="Salvar" class="botao" @click="solicitar" />
-          <CompBotao text="Voltar" class="botao-voltar" @click.prevent="voltar"/>
+          <SCompBotao text="Salvar" class="botao" @click="solicitar" />
+          <SCompBotao text="Voltar" class="botao-voltar" @click.prevent="voltar"/>
         </div>
       </form>
     </div>
@@ -69,13 +69,13 @@
 </template>
   
   <script lang="ts">
-import CompBotao from "@/components/CompBotao.vue";
-import CompNavTabs from "@/components/CompNavTabs.vue";
+import SCompBotao from "@/components/solicitante/SCompBotao.vue";
+import SCompNavTabs from "@/components/solicitante/SCompNavTabs.vue";
 export default {
-  name: "NovoChamado",
+  name: "SNovoChamado",
   components: {
-    CompBotao,
-    CompNavTabs,
+    SCompBotao,
+    SCompNavTabs,
   },
   methods: {
     voltar() {

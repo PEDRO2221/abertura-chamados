@@ -4,7 +4,7 @@
 
 <script lang="ts">
 export default {
-  name: "CompBotao",
+  name: "SCompBotao",
   props: {
     text: { type: String, required: true },
   },

@@ -49,6 +49,7 @@
 import { PropType } from "vue";
 import ApiRequester from "../services/ApiRequester";
 export default {
+<<<<<<< HEAD:src/components/CardChamados.vue
 
   name: "CardChamados",
   created() {
@@ -95,6 +96,32 @@ export default {
       },
   
 }
+=======
+  name: "SCardChamados",
+  props: {
+    chamados: {
+      type: Object as PropType<
+        {
+          id_chamado: number;
+          descricao: string;
+          grau_urgencia: string;
+          setor_solicitante_id: number;
+          setor_manutencao_id: number;
+          gestor_id: number;
+          tecnico_id: number;
+          solicitante_id: number;
+          status: string;
+          custo: string;
+          imagem: string;
+          data_abertura: string;
+          data_fechamento: string | null;
+          data_cancelamento: string | null;
+        }[]
+      >,
+      required: true,
+    },
+  },
+>>>>>>> f647fc87cb02aa2d4f500ab84f90603210712df6:src/components/solicitante/SCardChamados.vue
 };
 </script>
 
