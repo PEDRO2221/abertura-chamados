@@ -47,7 +47,7 @@
 
 <script lang="ts">
 import { PropType } from "vue";
-import ApiRequester from "../services/ApiRequester";
+import ApiRequester from "../../services/ApiRequester";
 export default {
   created() {
     this.buscarDados();

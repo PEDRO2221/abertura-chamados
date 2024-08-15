@@ -60,7 +60,7 @@ export default {
     async onSubmit(values: any) {
       const servico = new ApiRequester();
       try {
-        const token = await servico.autenticar(this.email, this.password);
+        const token = await servico.autenticarAbertura(this.email, this.password);
         console.log(token);
         this.$router.push("/solicitante/chamados");
       } catch (error: any) {
