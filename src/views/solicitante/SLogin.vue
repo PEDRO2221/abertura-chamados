@@ -39,11 +39,8 @@
 
 <script lang="ts">
 import { Form, Field } from "vee-validate";
-<<<<<<< HEAD:src/views/solicitante/Login.vue
-import CompBotao from "../../components/CompBotao.vue";
-=======
+
 import SCompBotao from "@/components/solicitante/SCompBotao.vue";
->>>>>>> f647fc87cb02aa2d4f500ab84f90603210712df6:src/views/solicitante/SLogin.vue
 import ApiRequester from "../../services/ApiRequester";
 
 export default {

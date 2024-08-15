@@ -81,13 +81,9 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-<<<<<<< HEAD:src/views/solicitante/chamados/ResumoChamado.vue
-import CompBotao from "../../../components/CompBotao.vue";
-import CompNavTabs from "../../../components/CompNavTabs.vue";
-=======
+
 import SCompBotao from "@/components/solicitante/SCompBotao.vue";
 import SCompNavTabs from "@/components/solicitante/SCompNavTabs.vue";
->>>>>>> f647fc87cb02aa2d4f500ab84f90603210712df6:src/views/solicitante/chamados/SResumoChamado.vue
 
 export default defineComponent({
   name: "SResumoChamado",

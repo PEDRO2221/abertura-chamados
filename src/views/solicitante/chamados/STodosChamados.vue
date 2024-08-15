@@ -3,11 +3,7 @@
 </template>
 
 <script lang="ts">
-<<<<<<< HEAD:src/views/solicitante/chamados/TodosChamados.vue
-import CardChamados from "../../../components/CardChamados.vue";
-=======
 import SCardChamados from "../../../components/solicitante/SCardChamados.vue";
->>>>>>> f647fc87cb02aa2d4f500ab84f90603210712df6:src/views/solicitante/chamados/STodosChamados.vue
 import ApiRequester from "../../../services/ApiRequester";
 
 export default {
