@@ -16,6 +16,9 @@ import SResumoChamado from "@/views/solicitante/chamados/SResumoChamado.vue";
 import GLogin from "../views/gestor/GLogin.vue";
 import GRecuperarSenha from "../views/gestor/GRecuperarSenha.vue";
 
+//import do direcionamento
+import Direcionamento from "@/views/Direcionamento.vue";
+
 const routes = [
   // Rotas do Solicitante
   {
@@ -95,6 +98,13 @@ const routes = [
       },
     ],
   },
+
+  // rota de direcionamento
+{
+  path: "/direcionamento",
+  name: "Direcionamento do Usuario",
+  component: Direcionamento ,
+}  
 ];
 
 const router = createRouter({
