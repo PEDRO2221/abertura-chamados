@@ -81,6 +81,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+
 import SCompBotao from "@/components/solicitante/SCompBotao.vue";
 import SCompNavTabs from "@/components/solicitante/SCompNavTabs.vue";
 

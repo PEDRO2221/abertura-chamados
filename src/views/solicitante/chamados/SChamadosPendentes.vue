@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts">
+
 import SCardChamados from "@/components/solicitante/SCardChamados.vue";
 
 export default {
