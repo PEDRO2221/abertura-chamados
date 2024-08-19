@@ -54,7 +54,7 @@ async autenticarGestor(email:string, senha:string) {
   return token;
 }
 async listartodos() {
-   return this.instance.get("/api/chamados");
+   return this.instance.get("/api/abertura/chamados");
 }
   
   async sair(){
