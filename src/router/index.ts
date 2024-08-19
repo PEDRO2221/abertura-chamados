@@ -127,7 +127,7 @@ const routes = [
 
   // Rota de Direcionamento
 {
-  path: "/direcionamento",
+  path: "/",
   name: "Direcionamento do Usuario",
   component: Direcionamento ,
 }  
