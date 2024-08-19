@@ -15,6 +15,13 @@ import SResumoChamado from "@/views/solicitante/chamados/SResumoChamado.vue";
 // Importes das Rotas do Gestor
 import GLogin from "../views/gestor/GLogin.vue";
 import GRecuperarSenha from "../views/gestor/GRecuperarSenha.vue";
+import GSobre from "../views/gestor/GSobre.vue";
+import GChamados from "../views/gestor/chamados/GChamados.vue";
+import GChamadosConcluidos from "../views/gestor/chamados/GChamadosConcluidos.vue";
+import GChamadosPendentes from "../views/gestor/chamados/GChamadosPendentes.vue";
+
+// Importe do Direcionamento
+import Direcionamento from "@/views/Direcionamento.vue";
 
 const routes = [
   // Rotas do Solicitante
@@ -93,8 +100,37 @@ const routes = [
         name: "GRecuperação de Senha",
         component: GRecuperarSenha,
       },
+      {
+        path: "/gestor/sobre",
+        name: "GSobre",
+        component: GSobre,
+      },
+      {
+        path: "/gestor/chamados",
+        name: "GChamados",
+        component: GChamados,
+        children: [
+          {
+            path: "/gestor/chamados/pendentes",
+            name: "GChamados Pendentes",
+            component: GChamadosPendentes,
+          },
+          {
+            path: "/gestor/chamados/concluidos",
+            name: "GChamados Concluidos",
+            component: GChamadosConcluidos,
+          },
+        ],
+      },
     ],
   },
+
+  // Rota de Direcionamento
+{
+  path: "/direcionamento",
+  name: "Direcionamento do Usuario",
+  component: Direcionamento ,
+}  
 ];
 
 const router = createRouter({

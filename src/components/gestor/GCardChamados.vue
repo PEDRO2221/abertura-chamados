@@ -49,7 +49,7 @@
 import { PropType } from "vue";
 import ApiRequester from "../../services/ApiRequester";
 export default {
-  name: "SCardChamados",
+  name: "GCardChamados",
   created() {
     this.buscarDados();
   },
@@ -117,7 +117,7 @@ export default {
 .card:hover {
   cursor: pointer;
   transform: scale(1.05);
-  border: #6da7fc 1px solid;
+  border: #555450 1px solid;
 }
 
 h2 {

@@ -1,17 +1,17 @@
 <template>
   <div>
-    <SCardChamados :chamados="dados" />
+    <GCardChamados :chamados="dados" />
   </div>
 </template>
 
 <script lang="ts">
 
-import SCardChamados from "../../../components/solicitante/SCardChamados.vue";
+import GCardChamados from "@/components/gestor/GCardChamados.vue";
 
 export default {
-  name: "SChamadosPendentes",
+  name: "GChamadosPendentes",
   components: {
-    SCardChamados,
+    GCardChamados,
   },
   data() {
     return {

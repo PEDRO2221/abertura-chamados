@@ -10,10 +10,10 @@
         <i class="bi bi-list text-white"></i>
       </button>
       <a class="navbar-brand d-flex justify-content-start text-white" href="#"
-        >Meus Chamados</a
+        >Chamados</a
       >
       <div
-        class="offcanvas offcanvas-start"
+        class="offcanvas offcanvas-start menu"
         tabindex="-1"
         id="offcanvasNavbar"
         aria-labelledby="offcanvasNavbarLabel"
@@ -31,11 +31,22 @@
           <div class="user">
             <img src="@/assets/logo-amigos.png" alt="" width="60px" />
             <div class="dados">
-              <p>Marcos André De Andrade Amaro</p>
+              <p style="color: white">Marcos André De Andrade Amaro</p>
               <p>annndre2016@gmail.com</p>
+              <p>Gestor Geral</p>
             </div>
           </div>
-          <ul class="navbar-nav border-top">
+          <ul class="navbar-nav">
+            <div class="nav-section">
+              <li class="nav-item d-flex justify-content-start">
+                <i class="bi bi-clipboard"></i>
+                <a class="nav-link" aria-current="page" href="#" @click="irParaChamados">Chamados</a>
+              </li>
+              <li class="nav-item d-flex justify-content-start">
+                <i class="bi bi-graph-up-arrow"></i>
+                <a class="nav-link" aria-current="page" href="#">Relatórios</a>
+              </li>
+            </div>
             <li class="nav-item d-flex justify-content-start">
               <i class="bi bi-person-lock"></i>
               <a class="nav-link" aria-current="page" href="#">Alterar Senha</a>
@@ -58,11 +69,14 @@
 
 <script>
 export default {
-  name: "SCompNavBar",
+  name: "GCompNavBar",
   methods: {
     abrirSobre() {
-      this.$router.push("/solicitante/sobre");
+      this.$router.push("/gestor/sobre");
     },
+    irParaChamados() {
+      this.$router.push("/gestor/chamados/pendentes");
+    }
     // async sair(){
     //   const servico = new ApiRequester();
     //   try {
@@ -84,7 +98,7 @@ export default {
 
 <style scoped>
 .background {
-  background-color: #6ea8fe;
+  background-color: #555450;
   height: 100vh;
   display: flex;
   margin: 0px;
@@ -99,14 +113,16 @@ export default {
 .menu {
   color: rgb(255, 255, 255);
   --bs-bg-opacity: 0;
-  background-color: #6ea8fe;
+  background-color: #555450;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 600;
   line-height: 40px;
   text-align: center;
 }
-
+.btn-close {
+  filter: invert(1);
+}
 .offcanvas {
   max-width: 70%;
 }
@@ -115,7 +131,10 @@ export default {
   gap: 8px;
 }
 .nav-item {
-  color: #555450;
+  color: #d9d9d9;
+}
+.nav-link {
+  color: #ffffff;
 }
 .dados p {
   margin-top: 20px;
@@ -127,18 +146,24 @@ export default {
 }
 .user {
   display: flex;
-  color: #767575;
-  border-bottom: solid 1px #767575b0;
+  color: #d9d9d9;
+  border-bottom: solid 1px #d9d9d9;
+  padding-bottom: 10px;
   border-width: 100%;
   flex-direction: column;
   align-items: center;
+}
+.nav-section {
+  border-bottom: solid 1px #d9d9d9;
+  border-width: 100%;
+  margin-bottom: 10px;
 }
 .offcanvas-body {
   gap: 30px;
 }
 .user img {
   border-radius: 50%;
-  background-color: black;
+  background-color: white;
 }
 span {
   font-family: Poppins;
