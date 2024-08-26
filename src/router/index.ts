@@ -22,6 +22,7 @@ import GChamadosPendentes from "../views/gestor/chamados/GChamadosPendentes.vue"
 
 // Importe do Direcionamento
 import Direcionamento from "@/views/Direcionamento.vue";
+import GSetores from "@/views/gestor/GSetores.vue";
 
 const routes = [
   // Rotas do Solicitante
@@ -91,6 +92,12 @@ const routes = [
     name: "Gestor",
     children: [
       {
+        path: "/gestor/setores",
+        name: "GSetores",
+        component: GSetores ,
+      } ,
+      {
+        
         path: "/gestor/login",
         name: "GLogin",
         component: GLogin,
@@ -126,11 +133,16 @@ const routes = [
   },
 
   // Rota de Direcionamento
-{
-  path: "/",
-  name: "Direcionamento do Usuario",
-  component: Direcionamento ,
-}  
+  {
+    path: "/",
+    name: "Direcionamento do Usuario",
+    component: GSetores ,
+  }  
+// {
+//   path: "/",
+//   name: "Direcionamento do Usuario",
+//   component: Direcionamento ,
+// }  
 ];
 
 const router = createRouter({

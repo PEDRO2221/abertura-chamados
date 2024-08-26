@@ -13,12 +13,13 @@ export default {
   components: {
     SCardChamados,
   },
+  
   data() {
     return {
-      chamadosPendentes: [
-      
-      ],
-    };
+      dados: [],
+    }
   },
+  
+
 };
 </script>

@@ -10,7 +10,7 @@
         <i class="bi bi-list text-white"></i>
       </button>
       <a class="navbar-brand d-flex justify-content-start text-white" href="#"
-        >Chamados</a
+        >Bem Vindo</a
       >
       <div
         class="offcanvas offcanvas-start menu"

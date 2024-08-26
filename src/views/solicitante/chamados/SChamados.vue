@@ -12,7 +12,7 @@
           </ul>
         </div>
         <router-view></router-view>
-        <STodosChamados v-show="exibirTodos" />
+        <STodosChamados v-show="exibirTodos"  />
         <button class="btn btn-primary">
           <i class="bi bi-plus-lg" @click="novoChamado"> Novo</i>
         </button>
@@ -25,6 +25,7 @@
 import { defineComponent } from "vue";
 import SCompNavBar from "../../../components/solicitante/SCompNavBar.vue";
 import STodosChamados from "./STodosChamados.vue";
+import ApiRequester from "../../../services/ApiRequester";
 
 export default defineComponent({
   name: "SChamados",
@@ -34,13 +35,25 @@ export default defineComponent({
   },
   data() {
     return {
+      dados: [],
       btn1: "",
       btn2: "background-color: #d0e3fe; color: #518feb;",
       btn3: "",
       exibirTodos: false,
     };
   },
+  
   methods: {
+    async buscarDados() {
+      try {
+        const response = new ApiRequester();
+        const dados = (await response.listartodos()).data;
+        console.log(JSON.stringify(dados));
+        return dados;
+      } catch (error) {
+        console.error("Erro ao fazer a requisição GET:", error);
+      }
+    },
     ativaTodos() {
       this.$router.push("/solicitante/chamados");
     },
@@ -78,6 +91,7 @@ export default defineComponent({
     },
   },
   created() {
+    this.buscarDados();
     if (this.$route.path === "/solicitante/chamados") {
       this.$router.push("/solicitante/chamados/pendentes");
     }

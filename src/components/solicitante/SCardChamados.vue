@@ -53,6 +53,11 @@ export default {
   created() {
     this.buscarDados();
   },
+  provide() {
+    return {
+      dados: this.dados,
+    };
+  },
   data() {
     return {
       dados: [],
