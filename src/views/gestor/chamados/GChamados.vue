@@ -2,7 +2,7 @@
   <div>
     <notifications />
     <div class="background">
-      <GCompNavBar />
+      <GCompNavBar textNav="CHAMADOS"/>
       <div class="main">
         <div class="menu-rapido">
           <ul>
@@ -14,7 +14,7 @@
         <router-view></router-view>
         <GTodosChamados v-show="exibirTodos" />
         <button class="btn-primary">
-          <i class="" @click="novoChamado">Setores</i>
+          <i class="" @click="abrirSetores">Setores</i>
         </button>
       </div>
     </div>
@@ -68,8 +68,8 @@ export default defineComponent({
         this.exibirTodos = false;
       }
     },
-    novoChamado() {
-      // this.$router.push("/gestor/novo-chamado");
+    abrirSetores() {
+      this.$router.push("/gestor/setores");
     },
   },
   watch: {
@@ -154,7 +154,8 @@ export default defineComponent({
   top: 90%;
 }
 
-.btn-primary:focus, .btn-primary:active {
+.btn-primary:focus,
+.btn-primary:active {
   background: #5554509f;
 }
 </style>

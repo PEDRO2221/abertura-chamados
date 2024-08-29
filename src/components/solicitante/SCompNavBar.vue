@@ -63,6 +63,9 @@ export default {
     abrirSobre() {
       this.$router.push("/solicitante/sobre");
     },
+    sair() {
+      this.$router.push("/");
+    },
     // async sair(){
     //   const servico = new ApiRequester();
     //   try {

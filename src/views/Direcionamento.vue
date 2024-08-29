@@ -4,7 +4,7 @@
       <img src="/src/assets/logo-amigos.png" alt="Logo Amigos do Bem" />
     </div>
     <div class="corpo">
-      <h1 class="text-body-secondary">Deseja entrar como</h1>
+      <h1 class="text-body-secondary">Você Deseja</h1>
 
       <div class="login-container">
         <div class="image-item solicitante" @click="direcionarSolicitante">
@@ -60,7 +60,7 @@ export default {
 
 .corpo {
   border-radius: 12px;
-  box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.137);
+  box-shadow: 1px 1px 40px rgba(0, 0, 0, 0.304);
   height: 60vh;
   padding-top: 40px;
 }
@@ -80,7 +80,7 @@ export default {
   text-align: center;
   padding: 1rem;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(204, 190, 190, 0.988);
+  box-shadow: 0 4px 8px rgba(204, 190, 190, 0.778);
   width: 160px;
   height: 160px;
 }

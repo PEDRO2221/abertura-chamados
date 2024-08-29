@@ -19,10 +19,11 @@ import GSobre from "../views/gestor/GSobre.vue";
 import GChamados from "../views/gestor/chamados/GChamados.vue";
 import GChamadosConcluidos from "../views/gestor/chamados/GChamadosConcluidos.vue";
 import GChamadosPendentes from "../views/gestor/chamados/GChamadosPendentes.vue";
+import GSetores from "@/views/gestor/GSetores.vue";
+import GDetalhesChamados from "@/views/gestor/chamados/GDetalhesChamados.vue";
 
 // Importe do Direcionamento
 import Direcionamento from "@/views/Direcionamento.vue";
-import GSetores from "@/views/gestor/GSetores.vue";
 
 const routes = [
   // Rotas do Solicitante
@@ -94,10 +95,9 @@ const routes = [
       {
         path: "/gestor/setores",
         name: "GSetores",
-        component: GSetores ,
-      } ,
+        component: GSetores,
+      },
       {
-        
         path: "/gestor/login",
         name: "GLogin",
         component: GLogin,
@@ -129,6 +129,17 @@ const routes = [
           },
         ],
       },
+      {
+        path: "/gestor/setores",
+        name: "GSetores",
+        component: GSetores,
+      },
+      {
+        path: "/gestor/detalhes/:id",
+        name: "GDetalhes",
+        component: GDetalhesChamados,
+        props: true,
+      },
     ],
   },
 
@@ -136,13 +147,8 @@ const routes = [
   {
     path: "/",
     name: "Direcionamento do Usuario",
-    component: GSetores ,
-  }  
-// {
-//   path: "/",
-//   name: "Direcionamento do Usuario",
-//   component: Direcionamento ,
-// }  
+    component: Direcionamento,
+  },
 ];
 
 const router = createRouter({

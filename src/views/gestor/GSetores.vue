@@ -1,12 +1,15 @@
 <template>
   <div>
     <div class="background">
-      <GCompNavBar />
+      <GCompNavBar textNav="SETORES"/>
       <div class="main">
-        <GCardSetor icon="bi bi-hospital-fill" text="CT" />
-        <GCardSetor icon="bi bi-hospital-fill" text="CT" />
-        <GCardSetor icon="bi bi-hospital-fill" text="CT" />
-        <GCardSetor icon="bi bi-hospital-fill" text="CT" />
+        <GCardSetor
+          v-for="(setor, index) in setores"
+          :key="index"
+          :text="setor.text"
+          :icone="setor.icone"
+          :cor="setor.cor"
+        />
       </div>
     </div>
   </div>
@@ -20,6 +23,52 @@ export default defineComponent({
   components: {
     GCompNavBar,
     GCardSetor,
+  },
+  data() {
+    return {
+      setores: [
+        {
+          cor: "#409B7A",
+          icone: "fa-solid fa-school",
+          text: "CT",
+        },
+        {
+          cor: "#5CABD7",
+          icone: "fa-solid fa-book-open",
+          text: "ESCOLA",
+        },
+        {
+          cor: "#F16B4D",
+          icone: "fa-solid fa-industry",
+          text: "FÁBRICA",
+        },
+        {
+          cor: "#B884E0",
+          icone: "fa-solid fa-users",
+          text: "SEDE",
+        },
+        {
+          cor: "#DCCC01",
+          icone: "fa-solid fa-hand-holding-dollar",
+          text: "EMPREENDEDORISMO",
+        },
+        {
+          cor: "#B8997B",
+          icone: "fa-solid fa-hospital-user",
+          text: "CENTRO DE ATENDIMENTO",
+        },
+        {
+          cor: "#5AC140",
+          icone: "fa-solid fa-leaf",
+          text: "CAMPO",
+        },
+        {
+          cor: "#C25AA5",
+          icone: "fa-solid fa-scissors",
+          text: "COSTURA",
+        },
+      ],
+    };
   },
 });
 </script>
@@ -45,7 +94,6 @@ export default defineComponent({
   line-height: 40px;
   text-align: center;
   color: white;
-  
 }
 
 .main {

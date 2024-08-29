@@ -9,8 +9,10 @@
       >
         <i class="bi bi-list text-white"></i>
       </button>
-      <a class="navbar-brand d-flex justify-content-start text-white" href="#"
-        >Bem Vindo</a
+      <a
+        class="navbar-brand d-flex justify-content-start text-white"
+        href="#"
+        >{{ textNav }}</a
       >
       <div
         class="offcanvas offcanvas-start menu"
@@ -40,7 +42,13 @@
             <div class="nav-section">
               <li class="nav-item d-flex justify-content-start">
                 <i class="bi bi-clipboard"></i>
-                <a class="nav-link" aria-current="page" href="#" @click="irParaChamados">Chamados</a>
+                <a
+                  class="nav-link"
+                  aria-current="page"
+                  href="#"
+                  @click="irParaChamados"
+                  >Chamados</a
+                >
               </li>
               <li class="nav-item d-flex justify-content-start">
                 <i class="bi bi-graph-up-arrow"></i>
@@ -70,13 +78,19 @@
 <script>
 export default {
   name: "GCompNavBar",
+  props: {
+    textNav: { type: String, required: true },
+  },
   methods: {
     abrirSobre() {
       this.$router.push("/gestor/sobre");
     },
     irParaChamados() {
       this.$router.push("/gestor/chamados/pendentes");
-    }
+    },
+    sair() {
+      this.$router.push("/");
+    },
     // async sair(){
     //   const servico = new ApiRequester();
     //   try {

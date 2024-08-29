@@ -63,7 +63,7 @@
           </tr>
           <tr>
             <td colspan="2" class="text">
-              <span>{{ chamado.status }}</span>
+              <span>{{ chamado.descricao }}</span>
             </td>
           </tr>
         </tbody>

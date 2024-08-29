@@ -14,23 +14,23 @@
         </div>
       </nav>
 
-      <SCardDetalhamento
+      <GCardDetalhamento
         :chamados="detalhesChamado"
         :id="idChamadoSelecionado"
       />
     </div>
-    <SCompBotao text="EDITAR" class="editar" />
-    <SCompBotao text="VOLTAR" class="voltar" @click="fecharPagina" />
+    <GCompBotao text="EDITAR" class="editar" />
+    <GCompBotao text="VOLTAR" class="voltar" @click="fecharPagina" />
   </div>
 </template>
 
 <script lang="ts">
-import SCardDetalhamento from "@/components/solicitante/SCardDetalhamento.vue";
-import SCompBotao from "@/components/solicitante/SCompBotao.vue";
+import GCardDetalhamento from "@/components/gestor/GCardDetalhamento.vue";
+import GCompBotao from "@/components/gestor/GCompBotao.vue";
 
 export default {
-  name: "SDetalhesChamados",
-  components: { SCardDetalhamento, SCompBotao },
+  name: "GDetalhesChamados",
+  components: { GCardDetalhamento, GCompBotao },
   data() {
     return {
       detalhesChamado: [
@@ -44,6 +44,7 @@ export default {
           grau_urgencia: "Baixa",
           solicitante_id: "Tatiane Simplício",
           setor_solicitante_id: "Centro de Transformação",
+          comentario: "O conserto do ventilador foi realizado com sucesso e já está funcionando normalmente.",
         },
       ],
     };
@@ -56,7 +57,7 @@ export default {
   },
   methods: {
     fecharPagina() {
-      this.$router.push("/solicitante/chamados");
+      this.$router.push("/gestor/chamados");
     },
   },
 };
