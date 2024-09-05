@@ -20,11 +20,11 @@ export default class ApiRequester {
   //   })
   // }
   async autenticarAbertura(email:string, senha:string) {
-
+        
         // Faz a requisição POST para o servidor com o email e senha
         const response = await this.instance.post("/api/abertura/entrar", {
             email: email,
-            password: senha,
+            senha: senha,
         });
 
         // Supondo que o token está no corpo da resposta
@@ -41,7 +41,7 @@ async autenticarGestor(email:string, senha:string) {
   // Faz a requisição POST para o servidor com o email e senha
   const response = await this.instance.post("/api/gestor/entrar", {
       email: email,
-      password: senha,
+      senha: senha,
   });
 
   // Supondo que o token está no corpo da resposta
@@ -53,8 +53,12 @@ async autenticarGestor(email:string, senha:string) {
   // Retorna o token
   return token;
 }
-async listartodos() {
-   return this.instance.get("/api/abertura/chamados");
+async listar(status:string | null = null) {
+   return this.instance.get("/api/abertura/chamados", {
+    params:{
+      status
+    }
+   });
 }
   
   async sair(){

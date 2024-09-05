@@ -6,13 +6,12 @@
       <div class="main">
         <div class="menu-rapido">
           <ul>
-            <li @click="ativaPendentes" :style="btn2">Pendentes</li>
-            <li @click="ativaConcluidos" :style="btn3">Concluídos</li>
-            <li @click="ativaTodos" :style="btn1">Todos</li>
+            <li @click="buscarDados('pendente')" :class="{ativo:status=='pendente'}">Pendentes</li>
+            <li @click="buscarDados('concluído')" :class="{ativo:status=='concluído'}">Concluídos</li>
+            <li @click="buscarDados()" :class="{ativo:status==null}">Todos</li>
           </ul>
         </div>
-        <router-view></router-view>
-        <STodosChamados v-show="exibirTodos"  />
+        <SCardChamados :chamados="dados" />
         <button class="btn btn-primary">
           <i class="bi bi-plus-lg" @click="novoChamado"> Novo</i>
         </button>
@@ -24,17 +23,18 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import SCompNavBar from "../../../components/solicitante/SCompNavBar.vue";
-import STodosChamados from "./STodosChamados.vue";
+import SCardChamados from "../../../components/solicitante/SCardChamados.vue";
 import ApiRequester from "../../../services/ApiRequester";
 
 export default defineComponent({
   name: "SChamados",
   components: {
     SCompNavBar,
-    STodosChamados,
+    SCardChamados,
   },
   data() {
     return {
+      status: 'pendente' as string|null,
       dados: [],
       btn1: "",
       btn2: "background-color: #d0e3fe; color: #518feb;",
@@ -44,27 +44,17 @@ export default defineComponent({
   },
   
   methods: {
-    async buscarDados() {
+    async buscarDados(status:string|null=null) {
+      this.status = status
       try {
         const response = new ApiRequester();
-        const dados = (await response.listartodos()).data;
-        console.log(JSON.stringify(dados));
-        return dados;
+        this.dados = (await response.listar(this.status)).data;
       } catch (error) {
         console.error("Erro ao fazer a requisição GET:", error);
       }
     },
-    ativaTodos() {
-      this.$router.push("/solicitante/chamados");
-    },
-    ativaPendentes() {
-      this.$router.push("/solicitante/chamados/pendentes");
-    },
-    ativaConcluidos() {
-      this.$router.push("/solicitante/chamados/concluidos");
-    },
     atualizaEstado() {
-      if (this.$route.path === "/solicitante/chamados") {
+      if (this.$route.path === "/solicitante/{}") {
         this.btn1 = "background-color: #d0e3fe; color: #518feb;";
         this.btn2 = "";
         this.btn3 = "";
@@ -113,7 +103,10 @@ export default defineComponent({
 .bg-body {
   --bs-bg-opacity: 0;
 }
-
+.ativo{
+  background-color: #d0e3fe; 
+  color: #518feb
+}
 .menu {
   --bs-bg-opacity: 0;
   background-color: #6ea8fe;

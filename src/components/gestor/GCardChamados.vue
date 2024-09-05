@@ -63,7 +63,7 @@ export default {
     async buscarDados() {
       try {
         const response = new ApiRequester();
-        const dados = (await response.listartodos()).data;
+        const dados = (await response.listar()).data;
         console.log(JSON.stringify(dados));
         return dados;
       } catch (error) {

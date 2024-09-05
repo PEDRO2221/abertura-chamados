@@ -8,7 +8,7 @@
       <h2 class="text-body-secondary">Abertura de Chamados</h2>
       <Form @submit="onSubmit" @invalid-submit="onInvalidSubmit">
         <div class="input-group flex-nowrap">
-          <Field
+          <input
             v-model="email"
             class="form-control"
             name="email"
@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { Form, Field } from "vee-validate";
+ import { Form, Field } from "vee-validate";
 
 import SCompBotao from "@/components/solicitante/SCompBotao.vue";
 import ApiRequester from "../../services/ApiRequester";
@@ -46,8 +46,8 @@ import ApiRequester from "../../services/ApiRequester";
 export default {
   name: "SLogin",
   components: {
-    Form,
-    Field,
+     Form,
+     Field,
     SCompBotao,
   },
   data() {
@@ -62,7 +62,7 @@ export default {
       try {
         const token = await servico.autenticarAbertura(this.email, this.password);
         console.log(token);
-        this.$router.push("/solicitante/chamados");
+        this.$router.push("/solicitante/chamados/");
       } catch (error: any) {
         const mensagem = error.response
           ? error.response.data.message

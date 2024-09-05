@@ -4,16 +4,16 @@
       <img src="/src/assets/logo-amigos.png" alt="Logo Amigos do Bem" />
     </div>
     <div class="corpo">
-      <h1 class="text-body-secondary">Você Deseja</h1>
+      <h1 class="text-body-secondary">ADB-CHAMADOS</h1>
 
       <div class="login-container">
         <div class="image-item solicitante" @click="direcionarSolicitante">
-          <img src="/src/assets/imagens/person-fill.svg" alt="Solicitante" />
-          <p class="img2">Solicitante</p>
+          <i class="bi bi-ticket-detailed"></i>
+          <p class="img2">Chamados</p>
         </div>
         <div class="image-item gestor" @click="direcionarGestor">
-          <img src="/src/assets/imagens/person-fill-gear.svg" alt="Gestor" />
-          <p class="img3">Gestor</p>
+          <i class="bi bi-tools"></i>
+          <p class="img3">Gestão</p>
         </div>
       </div>
     </div>
@@ -85,10 +85,13 @@ export default {
   height: 160px;
 }
 
-.image-item img {
-  width: 80px;
-  height: 80px;
-  filter: invert(1);
+i.bi {
+  font-size: 60px;
+  color: #fff;
+}
+
+i.bi.bi-ticket-detailed {
+  transform: rotate(130deg);
 }
 
 .image-item p {

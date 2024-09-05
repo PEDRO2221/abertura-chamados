@@ -24,7 +24,7 @@ export default {
     async buscarDados() {
       try {
         const response = new ApiRequester();
-        const dados = (await response.listartodos()).data;
+        const dados = (await response.listar()).data;
         this.dados = dados;
         console.log(this.dados)
       } catch (error) {
