@@ -7,11 +7,11 @@
       <h1 class="text-body-secondary">ADB-CHAMADOS</h1>
 
       <div class="login-container">
-        <div class="image-item solicitante" @click="direcionarSolicitante">
+        <div class="image-item chamados" @click="direcionarSolicitante">
           <i class="bi bi-ticket-detailed"></i>
           <p class="img2">Chamados</p>
         </div>
-        <div class="image-item gestor" @click="direcionarGestor">
+        <div class="image-item gestao" @click="direcionarGestor">
           <i class="bi bi-tools"></i>
           <p class="img3">Gestão</p>
         </div>
@@ -25,10 +25,10 @@ export default {
   name: "Direcionamento",
   methods: {
     direcionarSolicitante() {
-      this.$router.push("/solicitante/login");
+      this.$router.push("/chamados/login");
     },
     direcionarGestor() {
-      this.$router.push("/gestor/login");
+      this.$router.push("/gestao/login");
     },
   },
 };
@@ -102,12 +102,12 @@ i.bi.bi-ticket-detailed {
   font-weight: 600;
 }
 
-.solicitante {
+.chamados {
   background-color: #6ea8fe;
   cursor: pointer;
 }
 
-.gestor {
+.gestao{
   background-color: #555450;
   cursor: pointer;
 }
